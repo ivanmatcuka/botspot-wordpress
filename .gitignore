@@ -1,0 +1,17 @@
+# Misc
+.DS_Store
+
+#
+/vendor
+/mariadb
+/wordpress
+
+# Plugins
+/akismet
+index.php
+hello.php
+
+# Build
+veter-nrw-plugin.zip
+
+.env
