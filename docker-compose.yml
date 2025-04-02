@@ -1,3 +1,10 @@
+networks:
+  proxy-network:
+    external: true
+
+volumes:
+  wordpress:
+
 services:
   db:
     image: mariadb:latest
@@ -28,6 +35,5 @@ services:
       - ./src:/var/www/html/wp-content/plugins/botspot
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     restart: always
-
-volumes:
-  wordpress:
+    networks:
+      - proxy-network
