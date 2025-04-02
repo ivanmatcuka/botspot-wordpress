@@ -1,3 +1,7 @@
+networks:
+  proxy-network:
+    external: true
+    
 volumes:
   wordpress:
 
