@@ -11,8 +11,6 @@ services:
     volumes:
       - ./mariadb:/var/lib/mysql
     restart: always
-    networks:
-      - proxy-network
 
   wordpress:
     build: .
