@@ -19,12 +19,7 @@ services:
   wordpress:
     build: .
     image: wordpress:latest
-    cap_add:
-      - NET_ADMIN
     env_file: ./.env
-    post_start:
-      - command: |
-          iptables -t nat -A OUTPUT -o lo -p tcp --dport 8080 -j REDIRECT --to-port 80
     environment:
       WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
       WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
