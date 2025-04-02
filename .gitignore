@@ -7,11 +7,8 @@
 /wordpress
 
 # Plugins
-/akismet
-index.php
-hello.php
+/plugins/*
 
 # Build
-veter-nrw-plugin.zip
 
 .env

@@ -15,7 +15,12 @@ services:
   wordpress:
     build: .
     image: wordpress:latest
+    cap_add:
+      - NET_ADMIN
     env_file: ./.env
+    post_start:
+      - command: |
+          iptables -t nat -A OUTPUT -o lo -p tcp --dport 8080 -j REDIRECT --to-port 80
     environment:
       WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
       WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
@@ -24,7 +29,8 @@ services:
     ports:
       - 8080:80
     volumes:
-      - .:/var/www/html/wp-content/plugins/botspot
+      - ./wordpress:/var/www/html
+      - ./src:/var/www/html/wp-content/plugins/botspot
       - ./wp-config.php:/var/www/html/wp-config.php
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     restart: always
