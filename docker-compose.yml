@@ -24,7 +24,8 @@ services:
       - proxy-network
       - wordpress-network
 
-  wordpress:
+  botspot_wordpress:
+    container_name: botspot_wordpress
     build: .
     image: wordpress:latest
     env_file: ./.env
@@ -39,6 +40,7 @@ services:
       - ./wordpress:/var/www/html
       - ./src:/var/www/html/wp-content/plugins/botspot
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ./botspot-button:/var/www/html/wp-content/plugins/botspot-button
     restart: always
     networks:
       - proxy-network

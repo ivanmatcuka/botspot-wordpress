@@ -1,0 +1,40 @@
+{
+	"name": "botspot-button",
+	"version": "0.1.0",
+	"description": "React Button",
+	"author": "Ivan Matcuka",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build --webpack-copy-php --blocks-manifest",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start --webpack-copy-php --blocks-manifest",
+		"vite": "vite build"
+	},
+	"devDependencies": {
+		"@types/wordpress__block-editor": "^11.5.16",
+		"@vitejs/plugin-react": "^4.3.4",
+		"@wordpress/block-editor": "^14.16.0",
+		"@wordpress/scripts": "^30.14.1"
+	},
+	"dependencies": {
+		"@botspot/ui": "^1.0.30",
+		"@emotion/cache": "^11.14.0",
+		"@emotion/react": "^11.13.3",
+		"@emotion/styled": "^11.13.0",
+		"@mui/icons-material": "^5.15.11",
+		"@mui/material": "^5.14.13",
+		"@smakss/react-scroll-direction": "^4.2.0",
+		"material-ui-popup-state": "5.3.3",
+		"react": "^18",
+		"react-dom": "^18",
+		"react-hook-form": "^7.53.0",
+		"react-in-viewport": "^1.0.0-beta.8",
+		"react-reverse-portal": "^2.2.0",
+		"yup": "^1.4.0"
+	}
+}
