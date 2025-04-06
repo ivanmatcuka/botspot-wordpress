@@ -10,6 +10,7 @@ volumes:
 services:
   db:
     image: mariadb:latest
+    container_name: botspot_db
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
