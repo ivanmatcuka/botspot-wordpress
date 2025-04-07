@@ -1,4 +1,4 @@
-import { StandaloneButton as Button, buttonStorybookMeta } from "@botspot/ui";
+import { MediaBlock, mediaBlockStorybookMeta } from "@botspot/ui";
 import createCache, { EmotionCache } from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
@@ -8,7 +8,7 @@ import { Attributes, Root } from "../schema";
 import { attributesToProps } from "../utils/attributesToProps";
 import { storybookToBlockAttributes } from "../utils/storybookToBlockAttributes";
 
-type ButtonProps = ComponentProps<typeof Button>;
+type MediaBlockProps = ComponentProps<typeof MediaBlock>;
 export default function Edit({
 	attributes,
 	setAttributes,
@@ -36,12 +36,12 @@ export default function Edit({
 	}, []);
 
 	const blockConfig = useMemo(
-		() => storybookToBlockAttributes(buttonStorybookMeta),
+		() => storybookToBlockAttributes(mediaBlockStorybookMeta),
 		[],
 	);
 
 	const props = useMemo(
-		() => attributesToProps<ButtonProps>(attributes),
+		() => attributesToProps<MediaBlockProps>(attributes),
 		[attributes],
 	);
 
@@ -58,7 +58,7 @@ export default function Edit({
 			</InspectorControls>
 			{
 				<CacheProvider value={emotionCache}>
-					<Button {...props} onClick={(e) => e.preventDefault()} />
+					<MediaBlock {...props} />
 				</CacheProvider>
 			}
 		</p>

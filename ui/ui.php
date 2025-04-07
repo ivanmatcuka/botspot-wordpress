@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Plugin Name:       Button
- * Description:       React Button
+ * Plugin Name:       botspot
+ * Description:       botspot UI
  * Version:           0.1.0
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Author:            Ivan Matcuka
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       botspot-button
+ * Text Domain:       ui
  *
  * @package BotspotButton
  */
@@ -25,7 +25,7 @@ if (! defined('ABSPATH')) {
  * @see https://make.wordpress.org/core/2025/03/13/more-efficient-block-type-registration-in-6-8/
  * @see https://make.wordpress.org/core/2024/10/17/new-block-type-registration-apis-to-improve-performance-in-wordpress-6-7/
  */
-function botspot_button_botspot_button_block_init()
+function ui_botspot_button_block_init()
 {
 	/**
 	 * Registers the block(s) metadata from the `blocks-manifest.php` and registers the block type(s)
@@ -59,4 +59,5 @@ function botspot_button_botspot_button_block_init()
 		register_block_type(__DIR__ . "/build/{$block_type}");
 	}
 }
-add_action('init', 'botspot_button_botspot_button_block_init');
+
+add_action('init', 'ui_botspot_button_block_init');

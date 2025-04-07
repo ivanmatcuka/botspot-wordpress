@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "botspot-button/botspot-button",
+	"name": "ui/botspot-button",
 	"version": "0.1.0",
 	"title": "Button",
 	"category": "widgets",
@@ -11,10 +11,39 @@
 	"supports": {
 		"html": false
 	},
+	"attributes": {
+		"className": {
+			"type": "string"
+		},
+		"href": {
+			"type": "string",
+			"default": "#"
+		},
+		"target": {
+			"type": "string",
+			"default": "__self"
+		},
+		"type": {
+			"type": "string",
+			"default": "button"
+		},
+		"variant": {
+			"type": "string",
+			"enum": ["primary", "secondary", "outline", "menu", "menuItem", "topic"],
+			"default": "primary"
+		},
+		"children": {
+			"type": "string",
+			"default": "Button"
+		},
+		"disabled": {
+			"type": "boolean",
+			"default": false
+		}
+	},
 	"textdomain": "botspot-button",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
+	"editorStyle": "file:.index.css",
 	"render": "file:./render.php",
 	"viewScript": "file:./view.js"
 }

@@ -10,7 +10,7 @@ volumes:
 services:
   db:
     image: mariadb:latest
-    container_name: botspot_db
+    container_name: db
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -41,7 +41,7 @@ services:
       - ./wordpress:/var/www/html
       - ./src:/var/www/html/wp-content/plugins/botspot
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
-      - ./botspot-button:/var/www/html/wp-content/plugins/botspot-button
+      - ./ui:/var/www/html/wp-content/plugins/ui
     restart: always
     networks:
       - proxy-network

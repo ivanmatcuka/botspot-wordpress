@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ui/media-block",
+	"version": "0.1.0",
+	"title": "Media Block",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "React Media Block",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"assetUrl": {
+			"type": "string",
+			"default": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"banner": {
+			"type": "boolean"
+		},
+		"fullHeight": {
+			"type": "boolean"
+		},
+		"objectFit": {
+			"type": "string",
+			"enum": ["contain", "cover"],
+			"default": "cover"
+		}
+	},
+	"textdomain": "botspot-media-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:.index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
