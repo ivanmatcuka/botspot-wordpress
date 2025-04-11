@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/main-block",
+  "version": "0.1.0",
+  "title": "Main Block",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "React Main Block",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "cta": {
+      "type": "object",
+      "default": {
+        "href": "#",
+        "value": "Get Started",
+        "variant": "primary"
+      }
+    },
+    "headline": {
+      "type": "string",
+      "default": "Welcome to MainBlock"
+    },
+    "subAssetUrl": {
+      "type": "string",
+      "default": "https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU"
+    },
+    "subline": {
+      "type": "string",
+      "default": "Experience the best with our <strong>exclusive features</strong>"
+    }
+  },
+  "textdomain": "botspot-main-block",
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

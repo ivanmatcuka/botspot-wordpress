@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ui/skeleton-video",
+	"version": "0.1.0",
+	"title": "Skeletion Video",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "React Skeleton Video",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"autoPlay": {
+			"type": "boolean",
+			"default": true
+		},
+		"className": {
+			"type": "string"
+		},
+		"loop": {
+			"type": "boolean",
+			"default": true
+		},
+		"muted": {
+			"type": "boolean",
+			"default": true
+		},
+		"videoSrc": {
+			"type": "string",
+			"default": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+		}
+	},
+	"textdomain": "botspot-skeleton-video",
+	"editorScript": "file:./index.js",
+	"style": "file:./index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

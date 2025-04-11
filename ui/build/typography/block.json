@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/typography",
+  "version": "0.1.0",
+  "title": "Typography",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "React Typography",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "className": {
+      "type": "string"
+    },
+    "variant": {
+      "type": "string",
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6"
+      ],
+      "default": "primary"
+    },
+    "children": {
+      "type": "string",
+      "default": "Text"
+    }
+  },
+  "textdomain": "botspot-typography",
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

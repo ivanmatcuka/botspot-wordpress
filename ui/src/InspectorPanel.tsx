@@ -7,6 +7,7 @@ import {
 	TextControl,
 	ToggleControl,
 } from "@wordpress/components";
+import { JsonEditor } from "json-edit-react";
 import { Attributes } from "./schema";
 export type DynamicBlockSettingsPanelProps<T extends Record<string, any>> = {
 	attributes: T;
@@ -74,6 +75,21 @@ export function DynamicBlockSettingsPanel<T extends Record<string, any>>({
 										[key]: val ? Number(val) : undefined,
 									} as Partial<T>)
 								}
+							/>
+						);
+						break;
+					case "object":
+						input = (
+							<JsonEditor
+								rootFontSize={10}
+								onUpdate={(val) =>
+									setAttributes({ [key]: val.newData } as Partial<T>)
+								}
+								data={value}
+								restrictAdd
+								restrictDelete
+								restrictTypeSelection
+								indent={2}
 							/>
 						);
 				}

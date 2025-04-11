@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/page-container",
+  "version": "0.1.0",
+  "title": "Page Container",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "React Page Container",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "banner": {
+      "type": "boolean"
+    },
+    "mb": {
+      "type": "object",
+      "default": {
+        "md": 20,
+        "xs": 10
+      }
+    },
+    "mt": {
+      "type": "object",
+      "default": {
+        "md": 10,
+        "xs": 5
+      }
+    }
+  },
+  "textdomain": "botspot-page-container",
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ui/gallery-tile",
+	"version": "0.1.0",
+	"title": "Gallry Tile",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "React Gallry Tile",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"alt": {
+			"type": "string",
+			"default": "Placeholder image"
+		},
+		"bgColor": {
+			"type": "string",
+			"default": "grey.100"
+		},
+		"imgUrl": {
+			"type": "string",
+			"default": "https://picsum.photos/id/237/400/200"
+		}
+	},
+	"textdomain": "botspot-gallery-tile",
+	"editorScript": "file:./index.js",
+	"style": "file:./index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

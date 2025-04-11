@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "title": "Button",
   "category": "widgets",
-  "icon": "smiley",
+  "icon": "button",
   "description": "React Button",
   "example": {},
   "supports": {
@@ -50,7 +50,7 @@
   },
   "textdomain": "botspot-button",
   "editorScript": "file:./index.js",
-  "editorStyle": "file:.index.css",
+  "style": "file:./index.css",
   "render": "file:./render.php",
   "viewScript": "file:./view.js"
 }

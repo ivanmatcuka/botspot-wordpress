@@ -1,9 +1,9 @@
 import perfectionist from "eslint-plugin-perfectionist";
+import reactHooks from "eslint-plugin-react-hooks/index.js";
 import reactRefresh from "eslint-plugin-react-refresh";
+import js from "eslint/js/src/index.js";
+import globals from "globals/index.js";
 import tseslint from "typescript-eslint";
-import js from "./$node_modules/@eslint/js/src/index.js";
-import reactHooks from "./$node_modules/eslint-plugin-react-hooks/index.js";
-import globals from "./$node_modules/globals/index.js";
 
 export default tseslint.config(
 	{ ignores: ["dist"] },

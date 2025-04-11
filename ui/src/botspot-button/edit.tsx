@@ -1,66 +1,25 @@
-import { StandaloneButton as Button, buttonStorybookMeta } from "@botspot/ui";
-import createCache, { EmotionCache } from "@emotion/cache";
-import { CacheProvider } from "@emotion/react";
-import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
-import { ComponentProps, useEffect, useMemo, useState } from "react";
-import { DynamicBlockSettingsPanel } from "../InspectorPanel";
+import { StandaloneButton as Button } from "@botspot/ui/standalone";
+import { buttonStorybookMeta } from "@botspot/ui/storybook";
+
+import { ComponentProps, useMemo } from "react";
 import { Attributes, Root } from "../schema";
 import { attributesToProps } from "../utils/attributesToProps";
-import { storybookToBlockAttributes } from "../utils/storybookToBlockAttributes";
+
+import Editor from "../Editor";
 
 type ButtonProps = ComponentProps<typeof Button>;
-export default function Edit({
-	attributes,
-	setAttributes,
-}: {
+export default function Edit(props: {
 	attributes: Attributes;
 	setAttributes: (updated: Partial<Root>) => void;
 }) {
-	const [emotionCache, setEmotionCache] = useState<EmotionCache | null>();
-	const blockProps = useBlockProps();
-
-	useEffect(() => {
-		const body = document.getElementsByTagName("body")[0];
-		const iframe = body?.getElementsByTagName("iframe")[0];
-
-		if (!iframe) return;
-
-		setEmotionCache(
-			createCache({
-				key: "css",
-				container: iframe.contentDocument?.head,
-				prepend: true,
-				speedy: false,
-			}),
-		);
-	}, []);
-
-	const blockConfig = useMemo(
-		() => storybookToBlockAttributes(buttonStorybookMeta),
-		[],
+	const componentProps = useMemo(
+		() => attributesToProps<ButtonProps>(props.attributes),
+		[props.attributes],
 	);
-
-	const props = useMemo(
-		() => attributesToProps<ButtonProps>(attributes),
-		[attributes],
-	);
-
-	if (!emotionCache) return;
 
 	return (
-		<p {...blockProps}>
-			<InspectorControls>
-				<DynamicBlockSettingsPanel<typeof attributes>
-					attributes={attributes}
-					setAttributes={setAttributes}
-					config={blockConfig}
-				/>
-			</InspectorControls>
-			{
-				<CacheProvider value={emotionCache}>
-					<Button {...props} onClick={(e) => e.preventDefault()} />
-				</CacheProvider>
-			}
-		</p>
+		<Editor {...props} attributes={buttonStorybookMeta}>
+			<Button {...componentProps} onClick={(e) => e.preventDefault()} />
+		</Editor>
 	);
 }

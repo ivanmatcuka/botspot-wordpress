@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ui/banner",
+	"version": "0.1.0",
+	"title": "Banner",
+	"category": "widgets",
+	"icon": "cover-image",
+	"description": "React Banner",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"headline": {
+			"type": "string",
+			"default": "Sample Headline"
+		},
+		"mediaBlockOptions": {
+			"type": "object",
+			"default": {
+				"autoplay": true,
+				"banner": true,
+				"objectFit": "cover",
+				"assetUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+			}
+		},
+		"primary": {
+			"type": "object",
+			"default": {
+				"href": "#",
+				"value": "Primary CTA"
+			}
+		},
+		"secondary": {
+			"type": "object",
+			"default": {
+				"href": "#",
+				"value": "Secondary CTA"
+			}
+		},
+		"sublineElement": {
+			"type": "string",
+			"default": "This is a sample subline. <strong>HTML content</strong> is allowed."
+		}
+	},
+	"textdomain": "botspot-banner",
+	"editorScript": "file:./index.js",
+	"style": "file:./index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

@@ -35,6 +35,9 @@ function inferAttributeType(
 		boolean: {
 			type: "boolean",
 		},
+		object: {
+			type: "object",
+		},
 	};
 
 	const wpType = typeMap[type]["type"] || "string";
