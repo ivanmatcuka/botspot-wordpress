@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/landing-page-products",
+  "version": "0.1.0",
+  "title": "Landing Page Products",
+  "category": "widgets",
+  "icon": "networking",
+  "description": "React Landing Page Products",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "botspot-landing-page-products",
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

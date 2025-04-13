@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/iframe",
+  "version": "0.1.0",
+  "title": "Iframe",
+  "category": "widgets",
+  "icon": "editor-video",
+  "description": "React Iframe",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "src": {
+      "type": "string",
+      "default": "https://sketchfab.com/models/7d89f65475664a0eabc39e3e7790cddf/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1"
+    }
+  },
+  "textdomain": "botspot-iframe",
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

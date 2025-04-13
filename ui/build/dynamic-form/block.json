@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/dynamic-form",
+  "version": "0.1.0",
+  "title": "Dynamic Form",
+  "category": "widgets",
+  "icon": "format-gallery",
+  "description": "React Dynamic Form",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "formId": {
+      "type": "number",
+      "default": 1
+    },
+    "frameless": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "secondary": {
+      "type": "boolean",
+      "default": "false"
+    }
+  },
+  "textdomain": "botspot-dynamic-form",
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

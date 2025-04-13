@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/partner-logo-container",
+  "version": "0.1.0",
+  "title": "Partner Logo Container",
+  "category": "widgets",
+  "icon": "networking",
+  "description": "React Partner Logo Container",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "botspot-partner-logo-container",
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

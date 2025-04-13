@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/secondary-block",
+  "version": "0.1.0",
+  "title": "Secondary Block",
+  "category": "widgets",
+  "icon": "columns",
+  "description": "React SecondaryB lock",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "headline": {
+      "type": "string",
+      "default": "Ready to Take the Next Step?"
+    },
+    "primary": {
+      "type": "object",
+      "default": {
+        "href": "#",
+        "value": "Get Started"
+      }
+    },
+    "secondary": {
+      "type": "object",
+      "default": {
+        "href": "#",
+        "value": "Learn More"
+      }
+    },
+    "sublineElement": {
+      "type": "string",
+      "default": "Boost your business with <strong>custom solutions</strong> that scale."
+    }
+  },
+  "textdomain": "botspot-secondary-block",
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
