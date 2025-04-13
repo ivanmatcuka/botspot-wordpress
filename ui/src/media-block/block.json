@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Media Block",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "media-video",
 	"description": "React Media Block",
 	"example": {},
 	"supports": {

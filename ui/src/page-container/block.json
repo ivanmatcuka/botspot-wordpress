@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Page Container",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "align-full-width",
 	"description": "React Page Container",
 	"example": {},
 	"supports": {

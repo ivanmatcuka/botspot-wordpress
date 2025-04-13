@@ -1,20 +1,21 @@
-import { StandaloneGalleryTile as GalleryTile } from "@botspot/ui/standalone";
+import { StandaloneGallery as Gallery } from "@botspot/ui/standalone";
 import { ComponentProps } from "react";
 
 import { InnerBlocks } from "@wordpress/block-editor";
 import Editor from "../Editor";
 import blockConfig from "./block.json";
+import "./editor.scss";
 
-type GalleryTileProps = ComponentProps<typeof GalleryTile>;
+type GalleryProps = ComponentProps<typeof Gallery>;
 export default function Edit(props: {
-	attributes: GalleryTileProps;
-	setAttributes: (updated: Partial<GalleryTileProps>) => void;
+	attributes: GalleryProps;
+	setAttributes: (updated: Partial<GalleryProps>) => void;
 }) {
 	return (
 		<Editor {...props} blockConfig={blockConfig.attributes}>
-			<GalleryTile {...props.attributes}>
+			<Gallery {...props.attributes}>
 				<InnerBlocks />
-			</GalleryTile>
+			</Gallery>
 		</Editor>
 	);
 }

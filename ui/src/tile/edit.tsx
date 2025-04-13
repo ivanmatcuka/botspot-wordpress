@@ -1,26 +1,19 @@
-import { tileStorybookMeta } from "@botspot/ui/storybook";
-
 import { StandaloneTile as Tile } from "@botspot/ui/standalone";
-import { ComponentProps, useMemo } from "react";
-import { Attributes, Root } from "../schema";
-import { attributesToProps } from "../utils/attributesToProps";
+import { ComponentProps } from "react";
 
 import { InnerBlocks } from "@wordpress/block-editor";
+
 import Editor from "../Editor";
+import blockConfig from "./block.json";
 
 type TileProps = ComponentProps<typeof Tile>;
 export default function Edit(props: {
-	attributes: Attributes;
-	setAttributes: (updated: Partial<Root>) => void;
+	attributes: TileProps;
+	setAttributes: (updated: Partial<TileProps>) => void;
 }) {
-	const componentProps = useMemo(
-		() => attributesToProps<TileProps>(props.attributes),
-		[props.attributes],
-	);
-
 	return (
-		<Editor {...props} attributes={tileStorybookMeta}>
-			<Tile {...componentProps}>
+		<Editor {...props} blockConfig={blockConfig.attributes}>
+			<Tile {...props.attributes}>
 				<InnerBlocks />
 			</Tile>
 		</Editor>

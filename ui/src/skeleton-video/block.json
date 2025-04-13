@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Skeletion Video",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "format-video",
 	"description": "React Skeleton Video",
 	"example": {},
 	"supports": {

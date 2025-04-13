@@ -1,26 +1,18 @@
 import { StandaloneSkeletonVideo as SkeletonVideo } from "@botspot/ui/standalone";
-import { skeletonVideoStorybookMeta } from "@botspot/ui/storybook";
 
-import { ComponentProps, useMemo } from "react";
-
-import { Attributes, Root } from "../schema";
-import { attributesToProps } from "../utils/attributesToProps";
+import { ComponentProps } from "react";
 
 import Editor from "../Editor";
+import blockConfig from "./block.json";
 
 type SkeletonVideoProps = ComponentProps<typeof SkeletonVideo>;
 export default function Edit(props: {
-	attributes: Attributes;
-	setAttributes: (updated: Partial<Root>) => void;
+	attributes: SkeletonVideoProps;
+	setAttributes: (updated: Partial<SkeletonVideoProps>) => void;
 }) {
-	const componentProps = useMemo(
-		() => attributesToProps<SkeletonVideoProps>(props.attributes),
-		[props.attributes],
-	);
-
 	return (
-		<Editor {...props} attributes={skeletonVideoStorybookMeta}>
-			<SkeletonVideo {...componentProps} />
+		<Editor {...props} blockConfig={blockConfig.attributes}>
+			<SkeletonVideo {...props.attributes} />
 		</Editor>
 	);
 }

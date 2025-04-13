@@ -8,18 +8,19 @@ import {
 	ToggleControl,
 } from "@wordpress/components";
 import { JsonEditor } from "json-edit-react";
-import { Attributes } from "./schema";
-export type DynamicBlockSettingsPanelProps<T extends Record<string, any>> = {
+
+export type DynamicBlockSettingsPanelProps<
+	T extends Record<string, any>,
+	C extends Record<string, any>,
+> = {
 	attributes: T;
-	config: Attributes;
+	config: C;
 	setAttributes: (updated: Partial<T>) => void;
 };
-
-export function DynamicBlockSettingsPanel<T extends Record<string, any>>({
-	attributes,
-	config,
-	setAttributes,
-}: DynamicBlockSettingsPanelProps<T>) {
+export function DynamicBlockSettingsPanel<
+	T extends Record<string, any>,
+	C extends Record<string, any>,
+>({ attributes, config, setAttributes }: DynamicBlockSettingsPanelProps<T, C>) {
 	return (
 		<Panel header="Properties">
 			{Object.entries(config).map(([key, attrConfig]) => {

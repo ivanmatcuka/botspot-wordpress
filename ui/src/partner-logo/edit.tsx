@@ -1,17 +1,18 @@
-import { Iframe } from "@botspot/ui";
+import { PartnerLogo } from "@botspot/ui";
+
 import { ComponentProps } from "react";
 
 import Editor from "../Editor";
 import blockConfig from "./block.json";
 
-type IframeProps = ComponentProps<typeof Iframe>;
+type PartnerLogoProps = ComponentProps<typeof PartnerLogo>;
 export default function Edit(props: {
-	attributes: IframeProps;
-	setAttributes: (updated: Partial<IframeProps>) => void;
+	attributes: PartnerLogoProps;
+	setAttributes: (updated: Partial<PartnerLogoProps>) => void;
 }) {
 	return (
 		<Editor {...props} blockConfig={blockConfig.attributes}>
-			<Iframe {...props.attributes} />
+			<PartnerLogo {...props.attributes} />
 		</Editor>
 	);
 }

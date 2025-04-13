@@ -1,23 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "ui/tile",
+	"name": "ui/landing-page-products",
 	"version": "0.1.0",
-	"title": "Tile",
+	"title": "Landing Page Products",
 	"category": "widgets",
-	"icon": "editor-alignleft",
-	"description": "React Tile",
+	"icon": "networking",
+	"description": "React Landing Page Products",
 	"example": {},
 	"supports": {
 		"html": false
 	},
-	"attributes": {
-		"headline": {
-			"type": "string",
-			"default": "Default headline"
-		}
-	},
-	"textdomain": "botspot-tile",
+	"textdomain": "botspot-landing-page-products",
 	"editorScript": "file:./index.js",
 	"style": "file:./index.css",
 	"render": "file:./render.php",

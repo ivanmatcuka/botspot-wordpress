@@ -1,25 +1,20 @@
 import { StandaloneBanner as Banner } from "@botspot/ui/standalone";
-
-import { ComponentProps, useMemo } from "react";
-import { Attributes, Root } from "../schema";
-import { attributesToProps } from "../utils/attributesToProps";
-import block from "./block.json";
+import { InnerBlocks } from "@wordpress/block-editor";
+import { ComponentProps } from "react";
 
 import Editor from "../Editor";
+import blockConfig from "./block.json";
 
 type BannerProps = ComponentProps<typeof Banner>;
 export default function Edit(props: {
-	attributes: Attributes;
-	setAttributes: (updated: Partial<Root>) => void;
+	attributes: BannerProps;
+	setAttributes: (updated: Partial<BannerProps>) => void;
 }) {
-	const componentProps = useMemo(
-		() => attributesToProps<BannerProps>(props.attributes),
-		[props.attributes],
-	);
-
 	return (
-		<Editor {...props} blockConfig={block.attributes}>
-			<Banner {...componentProps} />
+		<Editor {...props} blockConfig={blockConfig.attributes}>
+			<Banner {...props.attributes}>
+				<InnerBlocks orientation="horizontal" />
+			</Banner>
 		</Editor>
 	);
 }

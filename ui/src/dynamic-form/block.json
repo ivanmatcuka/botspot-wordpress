@@ -1,31 +1,31 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "ui/gallery-tile",
+	"name": "ui/dynamic-form",
 	"version": "0.1.0",
-	"title": "Gallery Tile",
+	"title": "Dynamic Form",
 	"category": "widgets",
 	"icon": "format-gallery",
-	"description": "React Gallery Tile",
+	"description": "React Dynamic Form",
 	"example": {},
 	"supports": {
 		"html": false
 	},
 	"attributes": {
-		"alt": {
-			"type": "string",
-			"default": "Placeholder image"
+		"formId": {
+			"type": "number",
+			"default": 1
 		},
-		"bgColor": {
-			"type": "string",
-			"default": "grey.100"
+		"frameless": {
+			"type": "boolean",
+			"default": "false"
 		},
-		"imgUrl": {
-			"type": "string",
-			"default": "https://picsum.photos/id/237/400/200"
+		"secondary": {
+			"type": "boolean",
+			"default": "false"
 		}
 	},
-	"textdomain": "botspot-gallery-tile",
+	"textdomain": "botspot-dynamic-form",
 	"editorScript": "file:./index.js",
 	"style": "file:./index.css",
 	"render": "file:./render.php",

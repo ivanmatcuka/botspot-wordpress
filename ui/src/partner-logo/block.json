@@ -1,23 +1,26 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "ui/tile",
+	"name": "ui/partner-logo",
 	"version": "0.1.0",
-	"title": "Tile",
+	"title": "Partner Logo",
 	"category": "widgets",
-	"icon": "editor-alignleft",
-	"description": "React Tile",
+	"icon": "format-video",
+	"description": "React Partner Logo",
 	"example": {},
 	"supports": {
 		"html": false
 	},
 	"attributes": {
-		"headline": {
+		"name": {
 			"type": "string",
-			"default": "Default headline"
+			"default": "partner-logo"
+		},
+		"src": {
+			"type": "string"
 		}
 	},
-	"textdomain": "botspot-tile",
+	"textdomain": "botspot-partner-logo",
 	"editorScript": "file:./index.js",
 	"style": "file:./index.css",
 	"render": "file:./render.php",

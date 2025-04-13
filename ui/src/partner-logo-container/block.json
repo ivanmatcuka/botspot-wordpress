@@ -1,23 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "ui/tile",
+	"name": "ui/partner-logo-container",
 	"version": "0.1.0",
-	"title": "Tile",
+	"title": "Partner Logo Container",
 	"category": "widgets",
-	"icon": "editor-alignleft",
-	"description": "React Tile",
+	"icon": "networking",
+	"description": "React Partner Logo Container",
 	"example": {},
 	"supports": {
 		"html": false
 	},
-	"attributes": {
-		"headline": {
-			"type": "string",
-			"default": "Default headline"
-		}
-	},
-	"textdomain": "botspot-tile",
+	"textdomain": "botspot-partner-logo-container",
 	"editorScript": "file:./index.js",
 	"style": "file:./index.css",
 	"render": "file:./render.php",

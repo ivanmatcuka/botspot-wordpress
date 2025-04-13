@@ -1,25 +1,25 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "ui/tile",
+	"name": "ui/gallery",
 	"version": "0.1.0",
-	"title": "Tile",
+	"title": "Gallery",
 	"category": "widgets",
-	"icon": "editor-alignleft",
-	"description": "React Tile",
+	"icon": "format-gallery",
+	"description": "React Gallery",
 	"example": {},
 	"supports": {
 		"html": false
 	},
 	"attributes": {
-		"headline": {
-			"type": "string",
-			"default": "Default headline"
+		"transparent": {
+			"type": "boolean",
+			"default": "If the background is transparent"
 		}
 	},
-	"textdomain": "botspot-tile",
+	"textdomain": "botspot-gallery",
 	"editorScript": "file:./index.js",
-	"style": "file:./index.css",
+	"editorStyle": "file:./index.css",
 	"render": "file:./render.php",
 	"viewScript": "file:./view.js"
 }

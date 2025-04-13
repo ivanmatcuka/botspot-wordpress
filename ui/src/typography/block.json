@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Typography",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "editor-textcolor",
 	"description": "React Typography",
 	"example": {},
 	"supports": {
@@ -17,12 +17,33 @@
 		},
 		"variant": {
 			"type": "string",
-			"enum": ["h1", "h2", "h3", "h4", "h5", "h6"],
-			"default": "primary"
+			"enum": [
+				"h1",
+				"h2",
+				"h3",
+				"h4",
+				"h5",
+				"h6",
+				"body1",
+				"body2",
+				"subtitle1",
+				"subtitle2",
+				"caption",
+				"button"
+			],
+			"default": "body1"
 		},
 		"children": {
 			"type": "string",
 			"default": "Text"
+		},
+		"mt": {
+			"type": "number",
+			"default": 2
+		},
+		"mb": {
+			"type": "number",
+			"default": 2
 		}
 	},
 	"textdomain": "botspot-typography",

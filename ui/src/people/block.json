@@ -1,23 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "ui/tile",
+	"name": "ui/people",
 	"version": "0.1.0",
-	"title": "Tile",
+	"title": "People",
 	"category": "widgets",
-	"icon": "editor-alignleft",
-	"description": "React Tile",
+	"icon": "admin-users",
+	"description": "React People",
 	"example": {},
 	"supports": {
 		"html": false
 	},
-	"attributes": {
-		"headline": {
-			"type": "string",
-			"default": "Default headline"
-		}
-	},
-	"textdomain": "botspot-tile",
+	"textdomain": "botspot-people",
 	"editorScript": "file:./index.js",
 	"style": "file:./index.css",
 	"render": "file:./render.php",

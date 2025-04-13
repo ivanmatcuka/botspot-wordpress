@@ -1,26 +1,18 @@
 import { StandaloneMediaBlock as MediaBlock } from "@botspot/ui/standalone";
-import { mediaBlockStorybookMeta } from "@botspot/ui/storybook";
 
-import { ComponentProps, useMemo } from "react";
-
-import { Attributes, Root } from "../schema";
-import { attributesToProps } from "../utils/attributesToProps";
+import { ComponentProps } from "react";
 
 import Editor from "../Editor";
+import blockConfig from "./block.json";
 
 type MediaBlockProps = ComponentProps<typeof MediaBlock>;
 export default function Edit(props: {
-	attributes: Attributes;
-	setAttributes: (updated: Partial<Root>) => void;
+	attributes: MediaBlockProps;
+	setAttributes: (updated: Partial<MediaBlockProps>) => void;
 }) {
-	const componentProps = useMemo(
-		() => attributesToProps<MediaBlockProps>(props.attributes),
-		[props.attributes],
-	);
-
 	return (
-		<Editor {...props} attributes={mediaBlockStorybookMeta}>
-			<MediaBlock {...componentProps} />
+		<Editor {...props} blockConfig={blockConfig.attributes}>
+			<MediaBlock {...props.attributes} />
 		</Editor>
 	);
 }

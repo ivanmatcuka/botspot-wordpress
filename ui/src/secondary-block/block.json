@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Secondary Block",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "columns",
 	"description": "React SecondaryB lock",
 	"example": {},
 	"supports": {

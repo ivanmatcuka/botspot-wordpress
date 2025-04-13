@@ -25,20 +25,6 @@
 				"assetUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
 			}
 		},
-		"primary": {
-			"type": "object",
-			"default": {
-				"href": "#",
-				"value": "Primary CTA"
-			}
-		},
-		"secondary": {
-			"type": "object",
-			"default": {
-				"href": "#",
-				"value": "Secondary CTA"
-			}
-		},
 		"sublineElement": {
 			"type": "string",
 			"default": "This is a sample subline. <strong>HTML content</strong> is allowed."

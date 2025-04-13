@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Iframe",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "editor-video",
 	"description": "React Iframe",
 	"example": {},
 	"supports": {

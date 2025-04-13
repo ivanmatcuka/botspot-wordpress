@@ -5,21 +5,13 @@
 	"version": "0.1.0",
 	"title": "Main Block",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "slides",
 	"description": "React Main Block",
 	"example": {},
 	"supports": {
 		"html": false
 	},
 	"attributes": {
-		"cta": {
-			"type": "object",
-			"default": {
-				"href": "#",
-				"value": "Get Started",
-				"variant": "primary"
-			}
-		},
 		"headline": {
 			"type": "string",
 			"default": "Welcome to MainBlock"

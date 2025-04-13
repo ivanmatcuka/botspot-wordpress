@@ -4,19 +4,21 @@ import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
 import { ReactNode, useEffect, useState } from "react";
 
 import { DynamicBlockSettingsPanel } from "./InspectorPanel";
-import { Attributes, Root } from "./schema";
 import "./tailwind.scss";
 
-export default function Editor({
+export default function Editor<
+	P extends Record<string, any>,
+	C extends Record<string, any>,
+>({
 	attributes,
 	children,
 	blockConfig,
 	setAttributes,
 }: {
-	attributes: Attributes;
+	attributes: P;
 	children: ReactNode;
-	blockConfig: Attributes;
-	setAttributes: (updated: Partial<Root>) => void;
+	blockConfig: C;
+	setAttributes: (updated: Partial<P>) => void;
 }) {
 	const [emotionCache, setEmotionCache] = useState<EmotionCache | null>();
 	const blockProps = useBlockProps();
@@ -42,7 +44,7 @@ export default function Editor({
 	return (
 		<p {...blockProps}>
 			<InspectorControls>
-				<DynamicBlockSettingsPanel<typeof attributes>
+				<DynamicBlockSettingsPanel
 					attributes={attributes}
 					setAttributes={setAttributes}
 					config={blockConfig}
