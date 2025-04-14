@@ -39,10 +39,8 @@ services:
       - 8080:80
     volumes:
       - ./wordpress:/var/www/html
-      - ./wp-config.php:/var/www/html/wp-config.php
-      - ./src:/var/www/html/wp-content/plugins/botspot
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
-      - ./ui:/var/www/html/wp-content/plugins/ui
+      - ./ui:/var/www/html/wp-content/plugins/botspot
     restart: always
     networks:
       - proxy-network

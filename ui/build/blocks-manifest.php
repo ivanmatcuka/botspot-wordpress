@@ -545,6 +545,33 @@ return array(
 		'render' => 'file:./render.php',
 		'viewScript' => 'file:./view.js'
 	),
+	'products-topic' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'ui/products-topic',
+		'version' => '0.1.0',
+		'title' => 'Products Topic',
+		'category' => 'widgets',
+		'icon' => 'networking',
+		'description' => 'React Products Topic',
+		'example' => array(
+			
+		),
+		'attributes' => array(
+			'defaultProductName' => array(
+				'type' => 'string',
+				'default' => 'Momentum'
+			)
+		),
+		'supports' => array(
+			'html' => false
+		),
+		'textdomain' => 'botspot-products-topic',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./index.css',
+		'render' => 'file:./render.php',
+		'viewScript' => 'file:./view.js'
+	),
 	'secondary-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
