@@ -27,6 +27,7 @@ services:
 
   botspot_wordpress:
     container_name: botspot_wordpress
+    build: .
     image: wordpress:latest
     env_file: ./.env
     environment:
