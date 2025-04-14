@@ -14,15 +14,15 @@
   "attributes": {
     "formId": {
       "type": "number",
-      "default": 1
+      "default": 15420
     },
     "frameless": {
       "type": "boolean",
-      "default": "false"
+      "default": false
     },
     "secondary": {
       "type": "boolean",
-      "default": "false"
+      "default": false
     }
   },
   "textdomain": "botspot-dynamic-form",

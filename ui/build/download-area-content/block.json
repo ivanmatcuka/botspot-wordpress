@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/download-area-content",
+  "version": "0.1.0",
+  "title": "Download Area Content",
+  "category": "widgets",
+  "icon": "admin-users",
+  "description": "React Download Area Content",
+  "example": {},
+  "attributes": {
+    "formId": {
+      "type": "number",
+      "default": 15422
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "botspot-download-area-content",
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

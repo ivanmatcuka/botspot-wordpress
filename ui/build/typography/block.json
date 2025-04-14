@@ -33,6 +33,14 @@
       ],
       "default": "body1"
     },
+    "color": {
+      "type": "string",
+      "enum": [
+        "white",
+        "black"
+      ],
+      "default": "black"
+    },
     "children": {
       "type": "string",
       "default": "Text"

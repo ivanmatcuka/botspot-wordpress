@@ -103,6 +103,33 @@ return array(
 		'render' => 'file:./render.php',
 		'viewScript' => 'file:./view.js'
 	),
+	'download-area-content' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'ui/download-area-content',
+		'version' => '0.1.0',
+		'title' => 'Download Area Content',
+		'category' => 'widgets',
+		'icon' => 'admin-users',
+		'description' => 'React Download Area Content',
+		'example' => array(
+			
+		),
+		'attributes' => array(
+			'formId' => array(
+				'type' => 'number',
+				'default' => 15422
+			)
+		),
+		'supports' => array(
+			'html' => false
+		),
+		'textdomain' => 'botspot-download-area-content',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./index.css',
+		'render' => 'file:./render.php',
+		'viewScript' => 'file:./view.js'
+	),
 	'dynamic-form' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -121,15 +148,15 @@ return array(
 		'attributes' => array(
 			'formId' => array(
 				'type' => 'number',
-				'default' => 1
+				'default' => 15420
 			),
 			'frameless' => array(
 				'type' => 'boolean',
-				'default' => 'false'
+				'default' => false
 			),
 			'secondary' => array(
 				'type' => 'boolean',
-				'default' => 'false'
+				'default' => false
 			)
 		),
 		'textdomain' => 'botspot-dynamic-form',
@@ -368,14 +395,36 @@ return array(
 			'banner' => array(
 				'type' => 'boolean'
 			),
+			'bgcolor' => array(
+				'type' => 'string',
+				'enum' => array(
+					'none',
+					'grey.100'
+				),
+				'default' => 'none'
+			),
 			'mb' => array(
 				'type' => 'object',
 				'default' => array(
-					'md' => 20,
-					'xs' => 10
+					'md' => 10,
+					'xs' => 5
 				)
 			),
 			'mt' => array(
+				'type' => 'object',
+				'default' => array(
+					'md' => 10,
+					'xs' => 5
+				)
+			),
+			'pb' => array(
+				'type' => 'object',
+				'default' => array(
+					'md' => 10,
+					'xs' => 5
+				)
+			),
+			'pt' => array(
 				'type' => 'object',
 				'default' => array(
 					'md' => 10,
@@ -646,6 +695,14 @@ return array(
 					'button'
 				),
 				'default' => 'body1'
+			),
+			'color' => array(
+				'type' => 'string',
+				'enum' => array(
+					'white',
+					'black'
+				),
+				'default' => 'black'
 			),
 			'children' => array(
 				'type' => 'string',

@@ -64,9 +64,24 @@ function ui_botspot_button_block_init()
 function get_cf7_forms_public($data)
 {
 	$plugin = new Cf7_To_Any_Api();
-	return $plugin->Cf7_To_Any_Api_default_form_field($data["id"]);
+
+	$form = $plugin->Cf7_To_Any_Api_default_form_field($data["id"]);
+
+	if ($form['status'] == 404) {
+		http_response_code(404);
+		return wp_send_json(null);
+	};
+
+	return wp_send_json($form);
 }
 
+function project_dequeue_unnecessary_styles()
+{
+	wp_dequeue_style('forms');
+	wp_deregister_style('forms');
+}
+
+add_action('wp_print_styles', 'project_dequeue_unnecessary_styles');
 add_action('init', 'ui_botspot_button_block_init');
 add_action('rest_api_init', function () {
 	register_rest_route('botspot/v1', '/forms/(?P<id>\d+)', [
