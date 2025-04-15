@@ -1,25 +1,21 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "ui/gallery",
-	"version": "0.1.0",
-	"title": "Gallery",
-	"category": "widgets",
-	"icon": "format-gallery",
-	"description": "React Gallery",
-	"example": {},
-	"supports": {
-		"html": false
-	},
-	"attributes": {
-		"transparent": {
-			"type": "boolean",
-			"default": "If the background is transparent"
-		}
-	},
-	"textdomain": "botspot-gallery",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"render": "file:./render.php",
-	"viewScript": "file:./view.js"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/gallery",
+  "version": "0.1.0",
+  "title": "Gallery",
+  "category": "botspot",
+  "icon": "format-gallery",
+  "description": "Highly specific block to store two iframes.",
+  "attributes": {
+    "transparent": {
+      "type": "boolean",
+      "default": true,
+      "name": "Transparent",
+      "description": "If the background is transparent."
+    }
+  },
+  "textdomain": "botspot-gallery",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css"
 }

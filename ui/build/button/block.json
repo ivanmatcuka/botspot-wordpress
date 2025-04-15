@@ -4,32 +4,43 @@
   "name": "ui/button",
   "version": "0.1.0",
   "title": "Button",
-  "category": "widgets",
+  "category": "botspot",
   "icon": "button",
-  "description": "React Button",
-  "example": {},
-  "supports": {
-    "html": false
-  },
+  "description": "Custom button component based on Material UI. For more info: https://material-ui.com/components/button/",
   "attributes": {
     "className": {
-      "type": "string"
+      "type": "string",
+      "description": "Optional classes are provided. The site and the editor support Tailwind.",
+      "name": "CSS Classes"
     },
     "href": {
       "type": "string",
-      "default": "#"
+      "default": "#",
+      "description": "Provide a link. Can be both external and internal.",
+      "name": "Link"
     },
     "target": {
       "type": "string",
       "enum": [
+        "_blank",
         "_self",
-        "_blank"
+        "_parent",
+        "_top"
       ],
-      "default": ""
+      "default": "_self",
+      "name": "Target",
+      "description": "Link target. For more info: https://www.w3schools.com/tags/att_a_target.asp"
     },
     "type": {
       "type": "string",
-      "default": "button"
+      "enum": [
+        "button",
+        "submit",
+        "reset"
+      ],
+      "default": "button",
+      "name": "Type",
+      "description": "Button type. For more info: https://www.w3schools.com/tags/att_button_type.asp"
     },
     "variant": {
       "type": "string",
@@ -41,20 +52,23 @@
         "menuItem",
         "topic"
       ],
-      "default": "primary"
+      "default": "primary",
+      "name": "Variant",
+      "description": "Button variant. Those are custom and based on the original design."
     },
     "children": {
       "type": "string",
-      "default": "Button"
+      "default": "Button",
+      "name": "Text",
+      "description": "Button text. Technically is React's 'children'."
     },
     "disabled": {
       "type": "boolean",
-      "default": false
+      "default": false,
+      "name": "Disabled",
+      "description": "When present, it specifies that the button should be disabled. For more info: https://www.w3schools.com/tags/att_button_disabled.asp"
     }
   },
   "textdomain": "botspot-button",
-  "editorScript": "file:./index.js",
-  "style": "file:./index.css",
-  "render": "file:./render.php",
-  "viewScript": "file:./view.js"
+  "editorScript": "file:./index.js"
 }

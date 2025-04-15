@@ -4,22 +4,17 @@
   "name": "ui/download-area-content",
   "version": "0.1.0",
   "title": "Download Area Content",
-  "category": "widgets",
-  "icon": "admin-users",
-  "description": "React Download Area Content",
-  "example": {},
+  "category": "botspot",
+  "icon": "download",
+  "description": "Higly specific block for Download Area. Don't use it elsewhere.",
   "attributes": {
     "formId": {
       "type": "number",
-      "default": 15422
+      "default": 15422,
+      "name": "Form ID",
+      "description": "The ID of the dynamic form that points to a Contact Form 7 instance."
     }
   },
-  "supports": {
-    "html": false
-  },
   "textdomain": "botspot-download-area-content",
-  "editorScript": "file:./index.js",
-  "style": "file:./index.css",
-  "render": "file:./render.php",
-  "viewScript": "file:./view.js"
+  "editorScript": "file:./index.js"
 }

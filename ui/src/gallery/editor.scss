@@ -1,9 +1,25 @@
 .wp-block-ui-gallery .block-editor-inner-blocks {
-	width: 100%;
+  width: 100%;
 
-	.block-editor-block-list__layout {
-		height: 100%;
-		display: flex;
-		justify-content: space-around;
-	}
+  .block-editor-block-list__layout {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    border-radius: 8px;
+
+    column-gap: 0;
+    row-gap: 16px;
+    height: 320px;
+    flex-direction: column;
+
+    @media (min-width: 900px) {
+      column-gap: 16px;
+      row-gap: 0;
+      height: 420px;
+      flex-direction: row;
+    }
+  }
 }

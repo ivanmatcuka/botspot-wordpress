@@ -1,33 +1,32 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "ui/dynamic-form",
-	"version": "0.1.0",
-	"title": "Dynamic Form",
-	"category": "widgets",
-	"icon": "format-gallery",
-	"description": "React Dynamic Form",
-	"example": {},
-	"supports": {
-		"html": false
-	},
-	"attributes": {
-		"formId": {
-			"type": "number",
-			"default": 15420
-		},
-		"frameless": {
-			"type": "boolean",
-			"default": false
-		},
-		"secondary": {
-			"type": "boolean",
-			"default": false
-		}
-	},
-	"textdomain": "botspot-dynamic-form",
-	"editorScript": "file:./index.js",
-	"style": "file:./index.css",
-	"render": "file:./render.php",
-	"viewScript": "file:./view.js"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/dynamic-form",
+  "version": "0.1.0",
+  "title": "Dynamic Form",
+  "category": "botspot",
+  "icon": "feedback",
+  "description": "Based on Contact Form 7 definitions. For more info: https://contactform7.com/",
+  "attributes": {
+    "formId": {
+      "type": "number",
+      "default": 15420,
+      "name": "Form ID",
+      "description": "The ID of the dynamic form that points to a Contact Form 7 instance."
+    },
+    "frameless": {
+      "type": "boolean",
+      "default": false,
+      "name": "Frameless",
+      "description": "Display the form without a frame."
+    },
+    "secondary": {
+      "type": "boolean",
+      "default": false,
+      "name": "Secondary",
+      "description": "Display secondary variant of the form."
+    }
+  },
+  "textdomain": "botspot-dynamic-form",
+  "editorScript": "file:./index.js"
 }

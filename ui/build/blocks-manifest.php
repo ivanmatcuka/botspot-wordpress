@@ -7,39 +7,35 @@ return array(
 		'name' => 'ui/banner',
 		'version' => '0.1.0',
 		'title' => 'Banner',
-		'category' => 'widgets',
+		'category' => 'botspot',
 		'icon' => 'cover-image',
-		'description' => 'React Banner',
-		'example' => array(
-			
-		),
-		'supports' => array(
-			'html' => false
-		),
+		'description' => 'Represents a banner that can be found at the top of most pages.',
 		'attributes' => array(
 			'headline' => array(
 				'type' => 'string',
-				'default' => 'Sample Headline'
+				'default' => 'Sample Headline',
+				'description' => 'Text only.',
+				'name' => 'Banner Headline'
 			),
 			'mediaBlockOptions' => array(
 				'type' => 'object',
 				'default' => array(
-					'autoplay' => true,
-					'banner' => true,
 					'objectFit' => 'cover',
 					'assetUrl' => 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4'
-				)
+				),
+				'description' => 'Those properties come directly from Material UI. They\'re safe but use with care.',
+				'name' => 'Media Block Settings'
 			),
 			'sublineElement' => array(
 				'type' => 'string',
-				'default' => 'This is a sample subline. <strong>HTML content</strong> is allowed.'
+				'default' => 'This is a sample subline. <strong>HTML content</strong> is allowed.',
+				'name' => 'Subline Element',
+				'description' => 'Subline element. HTML content is allowed'
 			)
 		),
 		'textdomain' => 'botspot-banner',
 		'editorScript' => 'file:./index.js',
-		'style' => 'file:./index.css',
-		'render' => 'file:./render.php',
-		'viewScript' => 'file:./view.js'
+		'editorStyle' => 'file:./index.css'
 	),
 	'button' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -47,34 +43,43 @@ return array(
 		'name' => 'ui/button',
 		'version' => '0.1.0',
 		'title' => 'Button',
-		'category' => 'widgets',
+		'category' => 'botspot',
 		'icon' => 'button',
-		'description' => 'React Button',
-		'example' => array(
-			
-		),
-		'supports' => array(
-			'html' => false
-		),
+		'description' => 'Custom button component based on Material UI. For more info: https://material-ui.com/components/button/',
 		'attributes' => array(
 			'className' => array(
-				'type' => 'string'
+				'type' => 'string',
+				'description' => 'Optional classes are provided. The site and the editor support Tailwind.',
+				'name' => 'CSS Classes'
 			),
 			'href' => array(
 				'type' => 'string',
-				'default' => '#'
+				'default' => '#',
+				'description' => 'Provide a link. Can be both external and internal.',
+				'name' => 'Link'
 			),
 			'target' => array(
 				'type' => 'string',
 				'enum' => array(
+					'_blank',
 					'_self',
-					'_blank'
+					'_parent',
+					'_top'
 				),
-				'default' => ''
+				'default' => '_self',
+				'name' => 'Target',
+				'description' => 'Link target. For more info: https://www.w3schools.com/tags/att_a_target.asp'
 			),
 			'type' => array(
 				'type' => 'string',
-				'default' => 'button'
+				'enum' => array(
+					'button',
+					'submit',
+					'reset'
+				),
+				'default' => 'button',
+				'name' => 'Type',
+				'description' => 'Button type. For more info: https://www.w3schools.com/tags/att_button_type.asp'
 			),
 			'variant' => array(
 				'type' => 'string',
@@ -86,22 +91,25 @@ return array(
 					'menuItem',
 					'topic'
 				),
-				'default' => 'primary'
+				'default' => 'primary',
+				'name' => 'Variant',
+				'description' => 'Button variant. Those are custom and based on the original design.'
 			),
 			'children' => array(
 				'type' => 'string',
-				'default' => 'Button'
+				'default' => 'Button',
+				'name' => 'Text',
+				'description' => 'Button text. Technically is React\'s \'children\'.'
 			),
 			'disabled' => array(
 				'type' => 'boolean',
-				'default' => false
+				'default' => false,
+				'name' => 'Disabled',
+				'description' => 'When present, it specifies that the button should be disabled. For more info: https://www.w3schools.com/tags/att_button_disabled.asp'
 			)
 		),
 		'textdomain' => 'botspot-button',
-		'editorScript' => 'file:./index.js',
-		'style' => 'file:./index.css',
-		'render' => 'file:./render.php',
-		'viewScript' => 'file:./view.js'
+		'editorScript' => 'file:./index.js'
 	),
 	'download-area-content' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -109,26 +117,19 @@ return array(
 		'name' => 'ui/download-area-content',
 		'version' => '0.1.0',
 		'title' => 'Download Area Content',
-		'category' => 'widgets',
-		'icon' => 'admin-users',
-		'description' => 'React Download Area Content',
-		'example' => array(
-			
-		),
+		'category' => 'botspot',
+		'icon' => 'download',
+		'description' => 'Higly specific block for Download Area. Don\'t use it elsewhere.',
 		'attributes' => array(
 			'formId' => array(
 				'type' => 'number',
-				'default' => 15422
+				'default' => 15422,
+				'name' => 'Form ID',
+				'description' => 'The ID of the dynamic form that points to a Contact Form 7 instance.'
 			)
 		),
-		'supports' => array(
-			'html' => false
-		),
 		'textdomain' => 'botspot-download-area-content',
-		'editorScript' => 'file:./index.js',
-		'style' => 'file:./index.css',
-		'render' => 'file:./render.php',
-		'viewScript' => 'file:./view.js'
+		'editorScript' => 'file:./index.js'
 	),
 	'dynamic-form' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -136,34 +137,31 @@ return array(
 		'name' => 'ui/dynamic-form',
 		'version' => '0.1.0',
 		'title' => 'Dynamic Form',
-		'category' => 'widgets',
-		'icon' => 'format-gallery',
-		'description' => 'React Dynamic Form',
-		'example' => array(
-			
-		),
-		'supports' => array(
-			'html' => false
-		),
+		'category' => 'botspot',
+		'icon' => 'feedback',
+		'description' => 'Based on Contact Form 7 definitions. For more info: https://contactform7.com/',
 		'attributes' => array(
 			'formId' => array(
 				'type' => 'number',
-				'default' => 15420
+				'default' => 15420,
+				'name' => 'Form ID',
+				'description' => 'The ID of the dynamic form that points to a Contact Form 7 instance.'
 			),
 			'frameless' => array(
 				'type' => 'boolean',
-				'default' => false
+				'default' => false,
+				'name' => 'Frameless',
+				'description' => 'Display the form without a frame.'
 			),
 			'secondary' => array(
 				'type' => 'boolean',
-				'default' => false
+				'default' => false,
+				'name' => 'Secondary',
+				'description' => 'Display secondary variant of the form.'
 			)
 		),
 		'textdomain' => 'botspot-dynamic-form',
-		'editorScript' => 'file:./index.js',
-		'style' => 'file:./index.css',
-		'render' => 'file:./render.php',
-		'viewScript' => 'file:./view.js'
+		'editorScript' => 'file:./index.js'
 	),
 	'gallery' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -171,26 +169,20 @@ return array(
 		'name' => 'ui/gallery',
 		'version' => '0.1.0',
 		'title' => 'Gallery',
-		'category' => 'widgets',
+		'category' => 'botspot',
 		'icon' => 'format-gallery',
-		'description' => 'React Gallery',
-		'example' => array(
-			
-		),
-		'supports' => array(
-			'html' => false
-		),
+		'description' => 'Highly specific block to store two iframes.',
 		'attributes' => array(
 			'transparent' => array(
 				'type' => 'boolean',
-				'default' => 'If the background is transparent'
+				'default' => true,
+				'name' => 'Transparent',
+				'description' => 'If the background is transparent.'
 			)
 		),
 		'textdomain' => 'botspot-gallery',
 		'editorScript' => 'file:./index.js',
-		'editorStyle' => 'file:./index.css',
-		'render' => 'file:./render.php',
-		'viewScript' => 'file:./view.js'
+		'editorStyle' => 'file:./index.css'
 	),
 	'gallery-tile' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -198,34 +190,36 @@ return array(
 		'name' => 'ui/gallery-tile',
 		'version' => '0.1.0',
 		'title' => 'Gallery Tile',
-		'category' => 'widgets',
+		'category' => 'botspot',
 		'icon' => 'format-gallery',
-		'description' => 'React Gallery Tile',
-		'example' => array(
-			
-		),
-		'supports' => array(
-			'html' => false
-		),
+		'description' => 'This block has one image and one free slot.',
 		'attributes' => array(
 			'alt' => array(
 				'type' => 'string',
-				'default' => 'Placeholder image'
+				'default' => 'image',
+				'name' => 'Alt text',
+				'description' => 'Alt text for the image. For more info: https://www.w3schools.com/tags/att_img_alt.asp'
 			),
 			'bgColor' => array(
 				'type' => 'string',
-				'default' => 'grey.100'
+				'default' => 'grey.100',
+				'enum' => array(
+					'none',
+					'grey.100',
+					'white'
+				),
+				'name' => 'Background Color',
+				'description' => 'Background color for the tile. These come from the Material UI palette. For more info: https://material-ui.com/customization/palette/'
 			),
 			'imgUrl' => array(
 				'type' => 'string',
-				'default' => 'https://picsum.photos/id/237/400/200'
+				'default' => 'https://picsum.photos/id/237/400/200',
+				'name' => 'Image URL',
+				'description' => 'Image URL. For more info: https://www.w3schools.com/tags/att_img_src.asp'
 			)
 		),
 		'textdomain' => 'botspot-gallery-tile',
-		'editorScript' => 'file:./index.js',
-		'style' => 'file:./index.css',
-		'render' => 'file:./render.php',
-		'viewScript' => 'file:./view.js'
+		'editorScript' => 'file:./index.js'
 	),
 	'iframe' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -233,26 +227,19 @@ return array(
 		'name' => 'ui/iframe',
 		'version' => '0.1.0',
 		'title' => 'Iframe',
-		'category' => 'widgets',
+		'category' => 'botspot',
 		'icon' => 'editor-video',
-		'description' => 'React Iframe',
-		'example' => array(
-			
-		),
-		'supports' => array(
-			'html' => false
-		),
+		'description' => 'This block is initially meant to store sketchfab iframes.',
 		'attributes' => array(
 			'src' => array(
 				'type' => 'string',
-				'default' => 'https://sketchfab.com/models/7d89f65475664a0eabc39e3e7790cddf/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1'
+				'default' => 'https://sketchfab.com/models/7d89f65475664a0eabc39e3e7790cddf/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_annotations=0&ui_color=4119bc&dnt=1',
+				'name' => 'Source',
+				'description' => 'The source of the iframe.'
 			)
 		),
 		'textdomain' => 'botspot-iframe',
-		'editorScript' => 'file:./index.js',
-		'style' => 'file:./index.css',
-		'render' => 'file:./render.php',
-		'viewScript' => 'file:./view.js'
+		'editorScript' => 'file:./index.js'
 	),
 	'jobs' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -260,20 +247,11 @@ return array(
 		'name' => 'ui/jobs',
 		'version' => '0.1.0',
 		'title' => 'Jobs',
-		'category' => 'widgets',
+		'category' => 'botspot',
 		'icon' => 'networking',
-		'description' => 'React Jobs',
-		'example' => array(
-			
-		),
-		'supports' => array(
-			'html' => false
-		),
+		'description' => 'The contents of this block can be set through WordPress posts only.',
 		'textdomain' => 'botspot-jobs',
-		'editorScript' => 'file:./index.js',
-		'style' => 'file:./index.css',
-		'render' => 'file:./render.php',
-		'viewScript' => 'file:./view.js'
+		'editorScript' => 'file:./index.js'
 	),
 	'landing-page-products' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -281,20 +259,11 @@ return array(
 		'name' => 'ui/landing-page-products',
 		'version' => '0.1.0',
 		'title' => 'Landing Page Products',
-		'category' => 'widgets',
-		'icon' => 'networking',
-		'description' => 'React Landing Page Products',
-		'example' => array(
-			
-		),
-		'supports' => array(
-			'html' => false
-		),
+		'category' => 'botspot',
+		'icon' => 'cart',
+		'description' => 'The contents of this block can be set through WordPress products (custom post type) only.',
 		'textdomain' => 'botspot-landing-page-products',
-		'editorScript' => 'file:./index.js',
-		'style' => 'file:./index.css',
-		'render' => 'file:./render.php',
-		'viewScript' => 'file:./view.js'
+		'editorScript' => 'file:./index.js'
 	),
 	'main-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -302,15 +271,9 @@ return array(
 		'name' => 'ui/main-block',
 		'version' => '0.1.0',
 		'title' => 'Main Block',
-		'category' => 'widgets',
+		'category' => 'botspot',
 		'icon' => 'slides',
 		'description' => 'React Main Block',
-		'example' => array(
-			
-		),
-		'supports' => array(
-			'html' => false
-		),
 		'attributes' => array(
 			'headline' => array(
 				'type' => 'string',
@@ -322,7 +285,7 @@ return array(
 			),
 			'subline' => array(
 				'type' => 'string',
-				'default' => 'Experience the best with our <strong>exclusive features</strong>'
+				'default' => 'Experience the best with our exclusive features'
 			)
 		),
 		'textdomain' => 'botspot-main-block',

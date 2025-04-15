@@ -4,13 +4,9 @@
   "name": "ui/main-block",
   "version": "0.1.0",
   "title": "Main Block",
-  "category": "widgets",
+  "category": "botspot",
   "icon": "slides",
   "description": "React Main Block",
-  "example": {},
-  "supports": {
-    "html": false
-  },
   "attributes": {
     "headline": {
       "type": "string",
@@ -22,7 +18,7 @@
     },
     "subline": {
       "type": "string",
-      "default": "Experience the best with our <strong>exclusive features</strong>"
+      "default": "Experience the best with our exclusive features"
     }
   },
   "textdomain": "botspot-main-block",

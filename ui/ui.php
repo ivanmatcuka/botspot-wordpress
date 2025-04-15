@@ -6,12 +6,13 @@
  * Version:           0.1.0
  * Requires at least: 6.7
  * Requires PHP:      7.4
+ * Requires Plugins:  contact-form-to-any-api, contact-form-7
  * Author:            Ivan Matcuka
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       ui
+ * Text Domain:       botspot-wordpress
  *
- * @package BotspotButton
+ * @package botspot
  */
 
 if (! defined('ABSPATH')) {
@@ -27,6 +28,18 @@ if (! defined('ABSPATH')) {
  */
 function ui_botspot_button_block_init()
 {
+	/**
+	 * Adds a new block category.
+	 */
+	add_filter('block_categories_all', function ($categories) {
+		$categories[] = array(
+			'slug'  => 'botspot',
+			'title' => 'botspot',
+		);
+
+		return $categories;
+	});
+
 	/**
 	 * Registers the block(s) metadata from the `blocks-manifest.php` and registers the block type(s)
 	 * based on the registered block metadata.

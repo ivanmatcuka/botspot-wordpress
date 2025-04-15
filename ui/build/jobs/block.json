@@ -4,16 +4,9 @@
   "name": "ui/jobs",
   "version": "0.1.0",
   "title": "Jobs",
-  "category": "widgets",
+  "category": "botspot",
   "icon": "networking",
-  "description": "React Jobs",
-  "example": {},
-  "supports": {
-    "html": false
-  },
+  "description": "The contents of this block can be set through WordPress posts only.",
   "textdomain": "botspot-jobs",
-  "editorScript": "file:./index.js",
-  "style": "file:./index.css",
-  "render": "file:./render.php",
-  "viewScript": "file:./view.js"
+  "editorScript": "file:./index.js"
 }

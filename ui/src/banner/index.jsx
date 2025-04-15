@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-import { registerBlockType } from "@wordpress/blocks";
+import { registerBlockType } from '@wordpress/blocks';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -16,9 +16,9 @@ import { registerBlockType } from "@wordpress/blocks";
 /**
  * Internal dependencies
  */
-import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
-import metadata from "./block.json";
-import Edit from "./edit";
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import metadata from './block.json';
+import Edit from './edit';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -26,17 +26,17 @@ import Edit from "./edit";
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType(metadata.name, {
-	/**
-	 * @see ./edit.js
-	 */
-	edit: Edit,
-	save: () => {
-		const blockProps = useBlockProps.save();
+  /**
+   * @see ./edit.js
+   */
+  edit: Edit,
+  save: () => {
+    const blockProps = useBlockProps.save();
 
-		return (
-			<div {...blockProps}>
-				<InnerBlocks.Content />
-			</div>
-		);
-	},
+    return (
+      <div {...blockProps}>
+        <InnerBlocks.Content />
+      </div>
+    );
+  },
 });

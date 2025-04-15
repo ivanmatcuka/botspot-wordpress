@@ -4,35 +4,33 @@
   "name": "ui/banner",
   "version": "0.1.0",
   "title": "Banner",
-  "category": "widgets",
+  "category": "botspot",
   "icon": "cover-image",
-  "description": "React Banner",
-  "example": {},
-  "supports": {
-    "html": false
-  },
+  "description": "Represents a banner that can be found at the top of most pages.",
   "attributes": {
     "headline": {
       "type": "string",
-      "default": "Sample Headline"
+      "default": "Sample Headline",
+      "description": "Text only.",
+      "name": "Banner Headline"
     },
     "mediaBlockOptions": {
       "type": "object",
       "default": {
-        "autoplay": true,
-        "banner": true,
         "objectFit": "cover",
         "assetUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
-      }
+      },
+      "description": "Those properties come directly from Material UI. They're safe but use with care.",
+      "name": "Media Block Settings"
     },
     "sublineElement": {
       "type": "string",
-      "default": "This is a sample subline. <strong>HTML content</strong> is allowed."
+      "default": "This is a sample subline. <strong>HTML content</strong> is allowed.",
+      "name": "Subline Element",
+      "description": "Subline element. HTML content is allowed"
     }
   },
   "textdomain": "botspot-banner",
   "editorScript": "file:./index.js",
-  "style": "file:./index.css",
-  "render": "file:./render.php",
-  "viewScript": "file:./view.js"
+  "editorStyle": "file:./index.css"
 }

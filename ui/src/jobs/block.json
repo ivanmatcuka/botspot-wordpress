@@ -1,19 +1,12 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "ui/jobs",
-	"version": "0.1.0",
-	"title": "Jobs",
-	"category": "widgets",
-	"icon": "networking",
-	"description": "React Jobs",
-	"example": {},
-	"supports": {
-		"html": false
-	},
-	"textdomain": "botspot-jobs",
-	"editorScript": "file:./index.js",
-	"style": "file:./index.css",
-	"render": "file:./render.php",
-	"viewScript": "file:./view.js"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/jobs",
+  "version": "0.1.0",
+  "title": "Jobs",
+  "category": "botspot",
+  "icon": "networking",
+  "description": "The contents of this block can be set through WordPress posts only.",
+  "textdomain": "botspot-jobs",
+  "editorScript": "file:./index.js"
 }
