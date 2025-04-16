@@ -10,5 +10,6 @@
 /plugins/*
 
 # Build
+/ui/build
 
 .env
