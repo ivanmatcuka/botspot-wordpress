@@ -1,33 +1,32 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "ui/posts",
-	"version": "0.1.0",
-	"title": "Posts",
-	"category": "widgets",
-	"icon": "slides",
-	"description": "React Posts",
-	"example": {},
-	"supports": {
-		"html": false
-	},
-	"attributes": {
-		"hidePagination": {
-			"type": "boolean",
-			"default": false
-		},
-		"list": {
-			"type": "boolean",
-			"default": false
-		},
-		"perPage": {
-			"type": "number",
-			"default": 12
-		}
-	},
-	"textdomain": "botspot-posts",
-	"editorScript": "file:./index.js",
-	"style": "file:./index.css",
-	"render": "file:./render.php",
-	"viewScript": "file:./view.js"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/posts",
+  "version": "0.1.0",
+  "title": "Posts",
+  "category": "botspot",
+  "icon": "slides",
+  "description": "The contents of this block can be set through WordPress posts only.",
+  "attributes": {
+    "hidePagination": {
+      "type": "boolean",
+      "default": false,
+      "name": "Hide Pagination",
+      "description": "When present, it specifies that the pagination should be hidden."
+    },
+    "list": {
+      "type": "boolean",
+      "default": false,
+      "name": "List",
+      "description": "When present, it specifies that the posts should be displayed as a list."
+    },
+    "perPage": {
+      "type": "number",
+      "default": 12,
+      "name": "Per Page",
+      "description": "Number of posts per page."
+    }
+  },
+  "textdomain": "botspot-posts",
+  "editorScript": "file:./index.js"
 }

@@ -4,22 +4,17 @@
   "name": "ui/products-topic",
   "version": "0.1.0",
   "title": "Products Topic",
-  "category": "widgets",
+  "category": "botspot",
   "icon": "networking",
-  "description": "React Products Topic",
-  "example": {},
+  "description": "This component is only to be injected into forms to add 'your-topic' fields to the form",
   "attributes": {
     "defaultProductName": {
       "type": "string",
-      "default": "Momentum"
+      "default": "Momentum",
+      "name": "Default Product Name",
+      "description": "The default dropdown value."
     }
   },
-  "supports": {
-    "html": false
-  },
   "textdomain": "botspot-products-topic",
-  "editorScript": "file:./index.js",
-  "style": "file:./index.css",
-  "render": "file:./render.php",
-  "viewScript": "file:./view.js"
+  "editorScript": "file:./index.js"
 }

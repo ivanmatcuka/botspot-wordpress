@@ -1,19 +1,12 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "ui/people",
-	"version": "0.1.0",
-	"title": "People",
-	"category": "widgets",
-	"icon": "admin-users",
-	"description": "React People",
-	"example": {},
-	"supports": {
-		"html": false
-	},
-	"textdomain": "botspot-people",
-	"editorScript": "file:./index.js",
-	"style": "file:./index.css",
-	"render": "file:./render.php",
-	"viewScript": "file:./view.js"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/people",
+  "version": "0.1.0",
+  "title": "People",
+  "category": "botspot",
+  "icon": "admin-users",
+  "description": "The contents of this block can be set through WordPress posts only.",
+  "textdomain": "botspot-people",
+  "editorScript": "file:./index.js"
 }
