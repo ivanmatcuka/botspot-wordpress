@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "title": "Products Topic",
   "category": "botspot",
-  "icon": "networking",
+  "icon": "buddicons-topics",
   "description": "This component is only to be injected into forms to add 'your-topic' fields to the form",
   "attributes": {
     "defaultProductName": {

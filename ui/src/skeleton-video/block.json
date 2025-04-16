@@ -1,40 +1,38 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "ui/skeleton-video",
-	"version": "0.1.0",
-	"title": "Skeletion Video",
-	"category": "widgets",
-	"icon": "format-video",
-	"description": "React Skeleton Video",
-	"example": {},
-	"supports": {
-		"html": false
-	},
-	"attributes": {
-		"autoPlay": {
-			"type": "boolean",
-			"default": true
-		},
-		"className": {
-			"type": "string"
-		},
-		"loop": {
-			"type": "boolean",
-			"default": true
-		},
-		"muted": {
-			"type": "boolean",
-			"default": true
-		},
-		"videoSrc": {
-			"type": "string",
-			"default": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
-		}
-	},
-	"textdomain": "botspot-skeleton-video",
-	"editorScript": "file:./index.js",
-	"style": "file:./index.css",
-	"render": "file:./render.php",
-	"viewScript": "file:./view.js"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/skeleton-video",
+  "version": "0.1.0",
+  "title": "Skeletion Video",
+  "category": "botspot",
+  "icon": "format-video",
+  "description": "Video block with skeleton preloader.",
+  "attributes": {
+    "autoPlay": {
+      "type": "boolean",
+      "default": true,
+      "name": "Autoplay",
+      "description": "When present, it specifies that the media should start playing automatically. For more info: https://www.w3schools.com/tags/att_video_autoplay.asp"
+    },
+    "loop": {
+      "type": "boolean",
+      "default": true,
+      "name": "Loop",
+      "description": "When present, it specifies that the video will start over again, every time it is finished. For more info: https://www.w3schools.com/tags/att_video_loop.asp"
+    },
+    "muted": {
+      "type": "boolean",
+      "default": true,
+      "name": "Muted",
+      "description": "When present, it specifies that the audio output of the video should be muted. For more info: https://www.w3schools.com/tags/att_video_muted.asp"
+    },
+    "videoSrc": {
+      "type": "string",
+      "default": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+      "name": "Video Source",
+      "description": "The source of the video."
+    }
+  },
+  "textdomain": "botspot-skeleton-video",
+  "editorScript": "file:./index.js"
 }

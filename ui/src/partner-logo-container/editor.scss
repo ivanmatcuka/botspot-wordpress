@@ -1,0 +1,24 @@
+.wp-block-ui-partner-logo-container .block-editor-inner-blocks {
+  width: 100%;
+
+  .block-editor-block-list__layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1536px;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 64px;
+    margin-bottom: 64px;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    @media (min-width: 900px) {
+      margin-top: 80px;
+      margin-bottom: 80px;
+      padding-left: 64px;
+      padding-right: 64px;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.wp-block-ui-secondary-block .block-editor-inner-blocks {
+  width: 100%;
+
+  .block-editor-block-list__layout {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (min-width: 900px) {
+      justify-content: left;
+      flex-direction: row;
+    }
+  }
+}

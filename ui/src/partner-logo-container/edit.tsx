@@ -1,6 +1,7 @@
 import { PartnerLogoContainer } from '@botspot/ui';
 import { InnerBlocks } from '@wordpress/block-editor';
 import Editor from '../Editor';
+import './editor.scss';
 
 export default function Edit(props: {
   attributes: {};

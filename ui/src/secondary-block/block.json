@@ -4,40 +4,24 @@
   "name": "ui/secondary-block",
   "version": "0.1.0",
   "title": "Secondary Block",
-  "category": "widgets",
+  "category": "botspot",
   "icon": "columns",
-  "description": "React SecondaryB lock",
-  "example": {},
-  "supports": {
-    "html": false
-  },
+  "description": "Genric component with two copies and two buttons.",
   "attributes": {
     "headline": {
       "type": "string",
-      "default": "Ready to Take the Next Step?"
-    },
-    "primary": {
-      "type": "object",
-      "default": {
-        "href": "#",
-        "value": "Get Started"
-      }
-    },
-    "secondary": {
-      "type": "object",
-      "default": {
-        "href": "#",
-        "value": "Learn More"
-      }
+      "default": "Ready to Take the Next Step?",
+      "name": "Headline",
+      "description": "Secondary block headline. Text only."
     },
     "sublineElement": {
       "type": "string",
-      "default": "Boost your business with <strong>custom solutions</strong> that scale."
+      "default": "Boost your business with <strong>custom solutions</strong> that scale.",
+      "name": "Subline Element",
+      "description": "Subline element. HTML content is allowed."
     }
   },
   "textdomain": "botspot-secondary-block",
   "editorScript": "file:./index.js",
-  "style": "file:./index.css",
-  "render": "file:./render.php",
-  "viewScript": "file:./view.js"
+  "editorStyle": "file:./index.css"
 }

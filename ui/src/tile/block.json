@@ -1,25 +1,20 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "ui/tile",
-	"version": "0.1.0",
-	"title": "Tile",
-	"category": "widgets",
-	"icon": "editor-alignleft",
-	"description": "React Tile",
-	"example": {},
-	"supports": {
-		"html": false
-	},
-	"attributes": {
-		"headline": {
-			"type": "string",
-			"default": "Default headline"
-		}
-	},
-	"textdomain": "botspot-tile",
-	"editorScript": "file:./index.js",
-	"style": "file:./index.css",
-	"render": "file:./render.php",
-	"viewScript": "file:./view.js"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/tile",
+  "version": "0.1.0",
+  "title": "Tile",
+  "category": "botspot",
+  "icon": "editor-alignleft",
+  "description": "Generic component with one copy on the left and free slot on the right",
+  "attributes": {
+    "headline": {
+      "type": "string",
+      "default": "Default headline",
+      "name": "Headline",
+      "description": "Tile headline. Text only."
+    }
+  },
+  "textdomain": "botspot-tile",
+  "editorScript": "file:./index.js"
 }

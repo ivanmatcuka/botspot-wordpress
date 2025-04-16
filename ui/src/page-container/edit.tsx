@@ -13,20 +13,7 @@ export default function Edit(props: {
   return (
     <Editor {...props} blockConfig={blockConfig.attributes}>
       <PageContainer {...props.attributes}>
-        <InnerBlocks
-          allowedBlocks={[
-            'ui/media-block',
-            'ui/typography',
-            'ui/button',
-            'ui/iframe',
-            'ui/skeleton-video',
-            'ui/gallery',
-            'ui/gallery-tile',
-            'ui/dynamic-form',
-            'ui/tile',
-            'ui/main-block',
-          ]}
-        />
+        <InnerBlocks />
       </PageContainer>
     </Editor>
   );

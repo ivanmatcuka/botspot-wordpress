@@ -1,20 +1,20 @@
-import { ThemeRegistry, Typography } from "@botspot/ui";
+import { ThemeRegistry, Typography } from '@botspot/ui';
 
-import { ComponentProps } from "react";
-import blockConfig from "./block.json";
+import { ComponentProps } from 'react';
+import blockConfig from './block.json';
 
-import Editor from "../Editor";
+import Editor from '../Editor';
 
 type TypographyProps = ComponentProps<typeof Typography>;
 export default function Edit(props: {
-	attributes: TypographyProps;
-	setAttributes: (updated: Partial<TypographyProps>) => void;
+  attributes: TypographyProps;
+  setAttributes: (updated: Partial<TypographyProps>) => void;
 }) {
-	return (
-		<Editor {...props} blockConfig={blockConfig.attributes}>
-			<ThemeRegistry>
-				<Typography {...props.attributes} />
-			</ThemeRegistry>
-		</Editor>
-	);
+  return (
+    <Editor {...props} blockConfig={blockConfig.attributes}>
+      <ThemeRegistry>
+        <Typography {...props.attributes} />
+      </ThemeRegistry>
+    </Editor>
+  );
 }
