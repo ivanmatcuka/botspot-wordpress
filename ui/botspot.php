@@ -77,7 +77,6 @@ function botspot_init()
 function get_cf7_forms_public($data)
 {
 	$plugin = new Cf7_To_Any_Api();
-
 	$form = $plugin->Cf7_To_Any_Api_default_form_field($data["id"]);
 
 	if ($form['status'] == 404) {
@@ -88,13 +87,6 @@ function get_cf7_forms_public($data)
 	return wp_send_json($form);
 }
 
-function project_dequeue_unnecessary_styles()
-{
-	wp_dequeue_style('forms');
-	wp_deregister_style('forms');
-}
-
-add_action('wp_print_styles', 'project_dequeue_unnecessary_styles');
 add_action('init', 'botspot_init');
 add_action('rest_api_init', function () {
 	register_rest_route('botspot/v1', '/forms/(?P<id>\d+)', [

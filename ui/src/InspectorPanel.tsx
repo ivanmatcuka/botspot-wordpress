@@ -11,8 +11,8 @@ import {
 import { JsonEditor } from 'json-edit-react';
 
 export type DynamicBlockSettingsPanelProps<
-  T extends Record<string, any>,
-  C extends Record<string, any>,
+  T extends Record<string, string>,
+  C extends Record<string, string>,
 > = {
   attributes: T;
   config: C;
@@ -39,13 +39,15 @@ export function DynamicBlockSettingsPanel<
                 <>
                   <Text>{value}</Text>
                   <DropdownMenu
-                    label={label}
                     controls={attrConfig.enum.map((option: string) => ({
                       isActive: value === option,
                       title: option,
                       onClick: () =>
-                        setAttributes({ [key]: option } as Partial<T>),
+                        setAttributes({
+                          [key]: option,
+                        } as Partial<T>),
                     }))}
+                    label={label}
                   />
                 </>
               );
@@ -53,53 +55,63 @@ export function DynamicBlockSettingsPanel<
             }
             input = (
               <TextControl
+                onChange={(val) =>
+                  setAttributes({
+                    [key]: val,
+                  } as Partial<T>)
+                }
                 value={value || ''}
-                onChange={(val) => setAttributes({ [key]: val } as Partial<T>)}
               />
             );
             break;
           case 'boolean':
             input = (
               <ToggleControl
-                label={!!value ? 'true' : 'false'}
+                onChange={(val) =>
+                  setAttributes({
+                    [key]: val,
+                  } as Partial<T>)
+                }
                 checked={!!value}
-                onChange={(val) => setAttributes({ [key]: val } as Partial<T>)}
+                label={!!value ? 'true' : 'false'}
               />
             );
             break;
           case 'number':
             input = (
               <TextControl
-                type="number"
-                label={label}
-                value={value || ''}
                 onChange={(val) =>
                   setAttributes({
                     [key]: val ? Number(val) : undefined,
                   } as Partial<T>)
                 }
+                label={label}
+                type="number"
+                value={value || ''}
               />
             );
             break;
           case 'object':
             input = (
               <JsonEditor
-                rootFontSize={10}
                 onUpdate={(val) =>
-                  setAttributes({ [key]: val.newData } as Partial<T>)
+                  setAttributes({
+                    [key]: val.newData,
+                  } as Partial<T>)
                 }
                 data={value}
+                indent={2}
+                rootFontSize={10}
+                rootName="settings"
                 restrictAdd
                 restrictDelete
                 restrictTypeSelection
-                rootName="settings"
-                indent={2}
               />
             );
         }
 
         return (
-          <PanelBody key={key} title={label} initialOpen={true}>
+          <PanelBody initialOpen={true} key={key} title={label}>
             <PanelRow>
               <Flex direction="column">
                 <Text>{description}</Text>

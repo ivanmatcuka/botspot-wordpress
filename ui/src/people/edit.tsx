@@ -3,6 +3,7 @@ import { ComponentProps, useEffect, useState } from 'react';
 
 import Editor from '../Editor';
 import { getPeople } from '../utils';
+import blockConfig from './block.json';
 
 type PeopleProps = ComponentProps<typeof People>;
 export default function Edit(props: {
@@ -18,7 +19,7 @@ export default function Edit(props: {
   }, []);
 
   return (
-    <Editor {...props} blockConfig={{}}>
+    <Editor {...props} blockConfig={{ name: blockConfig.name }}>
       <People {...props.attributes} people={props.attributes.people ?? data} />
     </Editor>
   );

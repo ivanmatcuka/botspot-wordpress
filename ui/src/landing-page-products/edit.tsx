@@ -1,9 +1,11 @@
-import { ComponentProps, useEffect, useState } from 'react';
 import type { WP_REST_API_Post } from 'wp-types';
 
 import { LandingPageProducts, ThemeRegistry } from '@botspot/ui';
+import { ComponentProps, useEffect, useState } from 'react';
+
 import Editor from '../Editor';
 import { getProducts } from '../utils';
+import blockConfig from './block.json';
 
 type LandingPageProductsProps = ComponentProps<typeof LandingPageProducts>;
 export default function Edit(props: {
@@ -19,7 +21,7 @@ export default function Edit(props: {
   }, []);
 
   return (
-    <Editor {...props} blockConfig={{}}>
+    <Editor {...props} blockConfig={{ name: blockConfig.name }}>
       <ThemeRegistry>
         <LandingPageProducts products={data ?? []} />
       </ThemeRegistry>

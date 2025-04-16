@@ -1,9 +1,8 @@
 import { ThemeRegistry, Typography } from '@botspot/ui';
-
 import { ComponentProps } from 'react';
-import blockConfig from './block.json';
 
 import Editor from '../Editor';
+import blockConfig from './block.json';
 
 type TypographyProps = ComponentProps<typeof Typography>;
 export default function Edit(props: {
@@ -11,7 +10,7 @@ export default function Edit(props: {
   setAttributes: (updated: Partial<TypographyProps>) => void;
 }) {
   return (
-    <Editor {...props} blockConfig={blockConfig.attributes}>
+    <Editor {...props} blockConfig={blockConfig}>
       <ThemeRegistry>
         <Typography {...props.attributes} />
       </ThemeRegistry>

@@ -1,5 +1,4 @@
 import { PartnerLogo } from '@botspot/ui';
-
 import { ComponentProps } from 'react';
 
 import Editor from '../Editor';
@@ -11,7 +10,7 @@ export default function Edit(props: {
   setAttributes: (updated: Partial<PartnerLogoProps>) => void;
 }) {
   return (
-    <Editor {...props} blockConfig={blockConfig.attributes}>
+    <Editor {...props} blockConfig={blockConfig}>
       <PartnerLogo {...props.attributes} />
     </Editor>
   );

@@ -1,28 +1,34 @@
 {
-  "name": "botspot-ui",
+  "name": "botspot",
   "version": "0.1.0",
-  "description": "React Button",
+  "description": "botspot Blocks",
   "author": "Ivan Matcuka",
   "license": "GPL-2.0-or-later",
   "main": "build/index.js",
+  "type": "module",
   "scripts": {
-    "build": "wp-scripts build --webpack-copy-php --blocks-manifest",
+    "build": "rm -rf build && wp-scripts build --webpack-copy-php --blocks-manifest",
     "format": "wp-scripts format",
     "lint:css": "wp-scripts lint-style",
     "lint:js": "wp-scripts lint-js",
     "packages-update": "wp-scripts packages-update",
     "plugin-zip": "wp-scripts plugin-zip",
-    "start": "wp-scripts start --webpack-copy-php --blocks-manifest"
+    "start": "wp-scripts start --webpack-copy-php --blocks-manifest",
+    "lint": "eslint . --fix"
   },
   "devDependencies": {
     "@storybook/react": "^8.6.12",
     "@storybook/react-webpack5": "^8.6.12",
+    "@types/stylis": "^4.2.7",
     "@types/wordpress__block-editor": "^11.5.16",
     "@vitejs/plugin-react": "^4.3.4",
     "@wordpress/block-editor": "^14.16.0",
     "@wordpress/scripts": "^30.14.1",
+    "eslint": "^8.57.1",
     "eslint-plugin-perfectionist": "^4.11.0",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "typescript-eslint": "^8.30.1",
     "wp-types": "^4.67.1"
   },
   "dependencies": {
@@ -30,6 +36,7 @@
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@smakss/react-scroll-direction": "^4.2.0",
+    "@wordpress/compose": "^7.22.0",
     "json-edit-react": "^1.25.0",
     "react": "^18",
     "react-dom": "^18",

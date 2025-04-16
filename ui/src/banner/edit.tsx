@@ -12,9 +12,9 @@ export default function Edit(props: {
   setAttributes: (updated: Partial<BannerProps>) => void;
 }) {
   return (
-    <Editor {...props} blockConfig={blockConfig.attributes}>
+    <Editor {...props} blockConfig={blockConfig}>
       <Banner {...props.attributes}>
-        <InnerBlocks orientation="horizontal" allowedBlocks={['ui/button']} />
+        <InnerBlocks allowedBlocks={['ui/button']} orientation="horizontal" />
       </Banner>
     </Editor>
   );

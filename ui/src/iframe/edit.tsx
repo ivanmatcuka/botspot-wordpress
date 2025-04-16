@@ -10,7 +10,7 @@ export default function Edit(props: {
   setAttributes: (updated: Partial<IframeProps>) => void;
 }) {
   return (
-    <Editor {...props} blockConfig={blockConfig.attributes}>
+    <Editor {...props} blockConfig={blockConfig}>
       <Iframe {...props.attributes} />
     </Editor>
   );

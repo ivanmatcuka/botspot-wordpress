@@ -11,7 +11,7 @@ export default function Edit(props: {
   setAttributes: (props: Partial<PostsProps>) => void;
 }) {
   return (
-    <Editor {...props} blockConfig={blockConfig.attributes}>
+    <Editor {...props} blockConfig={blockConfig}>
       <Posts {...props.attributes} getPosts={getPosts} />
     </Editor>
   );

@@ -1,58 +1,63 @@
 import createCache, { EmotionCache } from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
+import { useRefEffect } from '@wordpress/compose';
+import '@botspot/ui/dist/ui.css';
 import { ReactNode, useEffect, useState } from 'react';
 
 import { DynamicBlockSettingsPanel } from './InspectorPanel';
-import './tailwind.scss';
 
 export default function Editor<
   P extends Record<string, any>,
-  C extends Record<string, any>,
+  C extends { attributes?: Record<string, any>; name: string },
 >({
   attributes,
-  children,
   blockConfig,
+  children,
   setAttributes,
 }: {
   attributes: P;
-  children: ReactNode;
   blockConfig: C;
+  children: ReactNode;
   setAttributes: (updated: Partial<P>) => void;
 }) {
   const [emotionCache, setEmotionCache] = useState<EmotionCache | null>();
-  const blockProps = useBlockProps();
+  const [ownerDocument, setOwnerDocument] = useState<Document | null>(null);
+  const ref = useRefEffect(
+    (element) => {
+      const { ownerDocument } = element;
+      setOwnerDocument(ownerDocument);
+    },
+    [blockConfig],
+  );
+  const blockProps = useBlockProps({ ref });
 
   useEffect(() => {
-    const body = document.getElementsByTagName('body')[0];
-    const iframe = body?.getElementsByTagName('iframe')[0];
-
-    if (!iframe) return;
-
     setEmotionCache(
       createCache({
+        container: ownerDocument?.head,
         key: 'css',
-        container: iframe.contentDocument?.head,
-        prepend: true,
         speedy: false,
       }),
     );
-  }, []);
-
-  if (!emotionCache) return;
+  }, [ownerDocument]);
 
   return (
     <p {...blockProps}>
-      {!!Object.keys(attributes).length && (
-        <InspectorControls>
-          <DynamicBlockSettingsPanel
-            attributes={attributes}
-            setAttributes={setAttributes}
-            config={blockConfig}
-          />
-        </InspectorControls>
-      )}
-      {<CacheProvider value={emotionCache}>{children}</CacheProvider>}
+      <div id={`emotion-root-${blockConfig?.name}`}>
+        {!!Object.keys(attributes).length && (
+          <InspectorControls>
+            <DynamicBlockSettingsPanel
+              attributes={attributes}
+              config={blockConfig?.attributes ?? {}}
+              setAttributes={setAttributes}
+            />
+          </InspectorControls>
+        )}
+        {!!emotionCache && (
+          <CacheProvider value={emotionCache}>{children}</CacheProvider>
+        )}
+      </div>
     </p>
   );
 }

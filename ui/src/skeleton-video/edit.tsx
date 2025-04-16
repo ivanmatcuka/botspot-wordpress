@@ -1,5 +1,4 @@
 import { StandaloneSkeletonVideo as SkeletonVideo } from '@botspot/ui/standalone';
-
 import { ComponentProps } from 'react';
 
 import Editor from '../Editor';
@@ -11,7 +10,7 @@ export default function Edit(props: {
   setAttributes: (updated: Partial<SkeletonVideoProps>) => void;
 }) {
   return (
-    <Editor {...props} blockConfig={blockConfig.attributes}>
+    <Editor {...props} blockConfig={blockConfig}>
       <SkeletonVideo {...props.attributes} />
     </Editor>
   );
