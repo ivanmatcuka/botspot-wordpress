@@ -26,7 +26,7 @@ if (! defined('ABSPATH')) {
  * @see https://make.wordpress.org/core/2025/03/13/more-efficient-block-type-registration-in-6-8/
  * @see https://make.wordpress.org/core/2024/10/17/new-block-type-registration-apis-to-improve-performance-in-wordpress-6-7/
  */
-function ui_botspot_button_block_init()
+function botspot_init()
 {
 	/**
 	 * Adds a new block category.
@@ -95,7 +95,7 @@ function project_dequeue_unnecessary_styles()
 }
 
 add_action('wp_print_styles', 'project_dequeue_unnecessary_styles');
-add_action('init', 'ui_botspot_button_block_init');
+add_action('init', 'botspot_init');
 add_action('rest_api_init', function () {
 	register_rest_route('botspot/v1', '/forms/(?P<id>\d+)', [
 		'methods'  => 'GET',

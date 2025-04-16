@@ -6,19 +6,25 @@
   "title": "Main Block",
   "category": "botspot",
   "icon": "slides",
-  "description": "React Main Block",
+  "description": "Generic block with headline and subline. Can have nested blocks.",
   "attributes": {
     "headline": {
       "type": "string",
-      "default": "Welcome to MainBlock"
+      "default": "Welcome to MainBlock",
+      "name": "Headline",
+      "description": "Main block headline. Text only."
     },
     "subAssetUrl": {
       "type": "string",
-      "default": "https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU"
+      "default": "https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU",
+      "name": "Sub Asset URL",
+      "description": "Image URL for the subline. For more info: https://www.w3schools.com/tags/att_img_src.asp"
     },
     "subline": {
       "type": "string",
-      "default": "Experience the best with our exclusive features"
+      "default": "Experience the best with our exclusive features",
+      "name": "Subline",
+      "description": "Main block subline. Text only."
     }
   },
   "textdomain": "botspot-main-block",

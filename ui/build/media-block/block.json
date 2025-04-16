@@ -4,9 +4,9 @@
   "name": "ui/media-block",
   "version": "0.1.0",
   "title": "Media Block",
-  "category": "widgets",
+  "category": "botspot",
   "icon": "media-video",
-  "description": "React Media Block",
+  "description": "Generic media block. Can be either a video or an image.",
   "example": {},
   "supports": {
     "html": false
@@ -14,17 +14,21 @@
   "attributes": {
     "assetUrl": {
       "type": "string",
-      "default": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+      "default": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      "name": "Asset URL",
+      "description": "URL to the media asset"
     },
     "autoplay": {
       "type": "boolean",
-      "default": true
-    },
-    "banner": {
-      "type": "boolean"
+      "default": true,
+      "name": "Autoplay",
+      "description": "When present, it specifies that the media should start playing automatically. For more info: https://www.w3schools.com/tags/att_video_autoplay.asp"
     },
     "fullHeight": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false,
+      "name": "Full Height",
+      "description": "When present, it specifies that the media should be full height."
     },
     "objectFit": {
       "type": "string",
@@ -32,12 +36,11 @@
         "contain",
         "cover"
       ],
-      "default": "cover"
+      "default": "cover",
+      "name": "Object Fit",
+      "description": "The object-fit CSS property sets how the content of an element should be resized to fit its container. For more info: https://www.w3schools.com/cssref/css3_pr_object-fit.asp"
     }
   },
   "textdomain": "botspot-media-block",
-  "editorScript": "file:./index.js",
-  "style": "file:./index.css",
-  "render": "file:./render.php",
-  "viewScript": "file:./view.js"
+  "editorScript": "file:./index.js"
 }

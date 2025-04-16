@@ -4,57 +4,64 @@
   "name": "ui/page-container",
   "version": "0.1.0",
   "title": "Page Container",
-  "category": "widgets",
+  "category": "botspot",
   "icon": "align-full-width",
-  "description": "React Page Container",
-  "example": {},
-  "supports": {
-    "html": false
-  },
+  "description": "Most important and used block. Basic container that is also responsive.",
   "attributes": {
     "banner": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false,
+      "name": "Is a Banner",
+      "description": "Setting to true makes this block a banner. All contents will be shifted right."
     },
     "bgcolor": {
       "type": "string",
+      "default": "grey.100",
       "enum": [
         "none",
-        "grey.100"
+        "grey.100",
+        "white"
       ],
-      "default": "none"
+      "name": "Background Color",
+      "description": "Background color for the tile. These come from the Material UI palette. For more info: https://material-ui.com/customization/palette/"
     },
     "mb": {
       "type": "object",
       "default": {
         "md": 10,
         "xs": 5
-      }
+      },
+      "name": "Margin Bottom",
+      "description": "Margin bottom. This comes from Material UI and is responsive. For more info: https://material-ui.com/customization/spacing/"
     },
     "mt": {
       "type": "object",
       "default": {
         "md": 10,
         "xs": 5
-      }
+      },
+      "name": "Margin Top",
+      "description": "Margin top. This comes from Material UI and is responsive. For more info: https://material-ui.com/customization/spacing/"
     },
     "pb": {
       "type": "object",
       "default": {
         "md": 10,
         "xs": 5
-      }
+      },
+      "name": "Padding Bottom",
+      "description": "Padding bottom. This comes from Material UI and is responsive. For more info: https://material-ui.com/customization/spacing/"
     },
     "pt": {
       "type": "object",
       "default": {
         "md": 10,
         "xs": 5
-      }
+      },
+      "name": "Padding Top",
+      "description": "Padding top. This comes from Material UI and is responsive. For more info: https://material-ui.com/customization/spacing/"
     }
   },
   "textdomain": "botspot-page-container",
-  "editorScript": "file:./index.js",
-  "style": "file:./index.css",
-  "render": "file:./render.php",
-  "viewScript": "file:./view.js"
+  "editorScript": "file:./index.js"
 }

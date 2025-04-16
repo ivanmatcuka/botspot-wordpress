@@ -1,57 +1,63 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "ui/page-container",
-	"version": "0.1.0",
-	"title": "Page Container",
-	"category": "widgets",
-	"icon": "align-full-width",
-	"description": "React Page Container",
-	"example": {},
-	"supports": {
-		"html": false
-	},
-	"attributes": {
-		"banner": {
-			"type": "boolean"
-		},
-		"bgcolor": {
-			"type": "string",
-			"enum": ["none", "grey.100"],
-			"default": "none"
-		},
-		"mb": {
-			"type": "object",
-			"default": {
-				"md": 10,
-				"xs": 5
-			}
-		},
-		"mt": {
-			"type": "object",
-			"default": {
-				"md": 10,
-				"xs": 5
-			}
-		},
-		"pb": {
-			"type": "object",
-			"default": {
-				"md": 10,
-				"xs": 5
-			}
-		},
-		"pt": {
-			"type": "object",
-			"default": {
-				"md": 10,
-				"xs": 5
-			}
-		}
-	},
-	"textdomain": "botspot-page-container",
-	"editorScript": "file:./index.js",
-	"style": "file:./index.css",
-	"render": "file:./render.php",
-	"viewScript": "file:./view.js"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/page-container",
+  "version": "0.1.0",
+  "title": "Page Container",
+  "category": "botspot",
+  "icon": "align-full-width",
+  "description": "Most important and used block. Basic container that is also responsive.",
+  "attributes": {
+    "banner": {
+      "type": "boolean",
+      "default": false,
+      "name": "Is a Banner",
+      "description": "Setting to true makes this block a banner. All contents will be shifted right."
+    },
+    "bgcolor": {
+      "type": "string",
+      "default": "none",
+      "enum": ["none", "grey.100", "white"],
+      "name": "Background Color",
+      "description": "Background color for the tile. These come from the Material UI palette. For more info: https://material-ui.com/customization/palette/"
+    },
+    "mb": {
+      "type": "object",
+      "default": {
+        "md": 10,
+        "xs": 5
+      },
+      "name": "Margin Bottom",
+      "description": "Margin bottom. This comes from Material UI and is responsive. For more info: https://material-ui.com/customization/spacing/"
+    },
+    "mt": {
+      "type": "object",
+      "default": {
+        "md": 10,
+        "xs": 5
+      },
+      "name": "Margin Top",
+      "description": "Margin top. This comes from Material UI and is responsive. For more info: https://material-ui.com/customization/spacing/"
+    },
+    "pb": {
+      "type": "object",
+      "default": {
+        "md": 10,
+        "xs": 5
+      },
+      "name": "Padding Bottom",
+      "description": "Padding bottom. This comes from Material UI and is responsive. For more info: https://material-ui.com/customization/spacing/"
+    },
+    "pt": {
+      "type": "object",
+      "default": {
+        "md": 10,
+        "xs": 5
+      },
+      "name": "Padding Top",
+      "description": "Padding top. This comes from Material UI and is responsive. For more info: https://material-ui.com/customization/spacing/"
+    }
+  },
+  "textdomain": "botspot-page-container",
+  "editorScript": "file:./index.js"
 }

@@ -273,26 +273,30 @@ return array(
 		'title' => 'Main Block',
 		'category' => 'botspot',
 		'icon' => 'slides',
-		'description' => 'React Main Block',
+		'description' => 'Generic block with headline and subline. Can have nested blocks.',
 		'attributes' => array(
 			'headline' => array(
 				'type' => 'string',
-				'default' => 'Welcome to MainBlock'
+				'default' => 'Welcome to MainBlock',
+				'name' => 'Headline',
+				'description' => 'Main block headline. Text only.'
 			),
 			'subAssetUrl' => array(
 				'type' => 'string',
-				'default' => 'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU'
+				'default' => 'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+				'name' => 'Sub Asset URL',
+				'description' => 'Image URL for the subline. For more info: https://www.w3schools.com/tags/att_img_src.asp'
 			),
 			'subline' => array(
 				'type' => 'string',
-				'default' => 'Experience the best with our exclusive features'
+				'default' => 'Experience the best with our exclusive features',
+				'name' => 'Subline',
+				'description' => 'Main block subline. Text only.'
 			)
 		),
 		'textdomain' => 'botspot-main-block',
 		'editorScript' => 'file:./index.js',
-		'style' => 'file:./index.css',
-		'render' => 'file:./render.php',
-		'viewScript' => 'file:./view.js'
+		'style' => 'file:./index.css'
 	),
 	'media-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -300,9 +304,9 @@ return array(
 		'name' => 'ui/media-block',
 		'version' => '0.1.0',
 		'title' => 'Media Block',
-		'category' => 'widgets',
+		'category' => 'botspot',
 		'icon' => 'media-video',
-		'description' => 'React Media Block',
+		'description' => 'Generic media block. Can be either a video or an image.',
 		'example' => array(
 			
 		),
@@ -312,17 +316,21 @@ return array(
 		'attributes' => array(
 			'assetUrl' => array(
 				'type' => 'string',
-				'default' => 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4'
+				'default' => 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+				'name' => 'Asset URL',
+				'description' => 'URL to the media asset'
 			),
 			'autoplay' => array(
 				'type' => 'boolean',
-				'default' => true
-			),
-			'banner' => array(
-				'type' => 'boolean'
+				'default' => true,
+				'name' => 'Autoplay',
+				'description' => 'When present, it specifies that the media should start playing automatically. For more info: https://www.w3schools.com/tags/att_video_autoplay.asp'
 			),
 			'fullHeight' => array(
-				'type' => 'boolean'
+				'type' => 'boolean',
+				'default' => false,
+				'name' => 'Full Height',
+				'description' => 'When present, it specifies that the media should be full height.'
 			),
 			'objectFit' => array(
 				'type' => 'string',
@@ -330,14 +338,13 @@ return array(
 					'contain',
 					'cover'
 				),
-				'default' => 'cover'
+				'default' => 'cover',
+				'name' => 'Object Fit',
+				'description' => 'The object-fit CSS property sets how the content of an element should be resized to fit its container. For more info: https://www.w3schools.com/cssref/css3_pr_object-fit.asp'
 			)
 		),
 		'textdomain' => 'botspot-media-block',
-		'editorScript' => 'file:./index.js',
-		'style' => 'file:./index.css',
-		'render' => 'file:./render.php',
-		'viewScript' => 'file:./view.js'
+		'editorScript' => 'file:./index.js'
 	),
 	'page-container' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -345,61 +352,66 @@ return array(
 		'name' => 'ui/page-container',
 		'version' => '0.1.0',
 		'title' => 'Page Container',
-		'category' => 'widgets',
+		'category' => 'botspot',
 		'icon' => 'align-full-width',
-		'description' => 'React Page Container',
-		'example' => array(
-			
-		),
-		'supports' => array(
-			'html' => false
-		),
+		'description' => 'Most important and used block. Basic container that is also responsive.',
 		'attributes' => array(
 			'banner' => array(
-				'type' => 'boolean'
+				'type' => 'boolean',
+				'default' => false,
+				'name' => 'Is a Banner',
+				'description' => 'Setting to true makes this block a banner. All contents will be shifted right.'
 			),
 			'bgcolor' => array(
 				'type' => 'string',
+				'default' => 'grey.100',
 				'enum' => array(
 					'none',
-					'grey.100'
+					'grey.100',
+					'white'
 				),
-				'default' => 'none'
+				'name' => 'Background Color',
+				'description' => 'Background color for the tile. These come from the Material UI palette. For more info: https://material-ui.com/customization/palette/'
 			),
 			'mb' => array(
 				'type' => 'object',
 				'default' => array(
 					'md' => 10,
 					'xs' => 5
-				)
+				),
+				'name' => 'Margin Bottom',
+				'description' => 'Margin bottom. This comes from Material UI and is responsive. For more info: https://material-ui.com/customization/spacing/'
 			),
 			'mt' => array(
 				'type' => 'object',
 				'default' => array(
 					'md' => 10,
 					'xs' => 5
-				)
+				),
+				'name' => 'Margin Top',
+				'description' => 'Margin top. This comes from Material UI and is responsive. For more info: https://material-ui.com/customization/spacing/'
 			),
 			'pb' => array(
 				'type' => 'object',
 				'default' => array(
 					'md' => 10,
 					'xs' => 5
-				)
+				),
+				'name' => 'Padding Bottom',
+				'description' => 'Padding bottom. This comes from Material UI and is responsive. For more info: https://material-ui.com/customization/spacing/'
 			),
 			'pt' => array(
 				'type' => 'object',
 				'default' => array(
 					'md' => 10,
 					'xs' => 5
-				)
+				),
+				'name' => 'Padding Top',
+				'description' => 'Padding top. This comes from Material UI and is responsive. For more info: https://material-ui.com/customization/spacing/'
 			)
 		),
 		'textdomain' => 'botspot-page-container',
-		'editorScript' => 'file:./index.js',
-		'style' => 'file:./index.css',
-		'render' => 'file:./render.php',
-		'viewScript' => 'file:./view.js'
+		'editorScript' => 'file:./index.js'
 	),
 	'partner-logo' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
