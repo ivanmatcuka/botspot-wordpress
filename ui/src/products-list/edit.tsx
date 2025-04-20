@@ -1,16 +1,16 @@
 import type { WP_REST_API_Post } from 'wp-types';
 
-import { LandingPageProducts, ThemeRegistry } from '@botspot/ui';
+import { StandaloneProductsList as ProductsList } from '@botspot/ui';
 import { ComponentProps, useEffect, useState } from 'react';
 
 import Editor from '../Editor';
 import { getProducts } from '../utils';
 import blockConfig from './block.json';
 
-type LandingPageProductsProps = ComponentProps<typeof LandingPageProducts>;
+type ProductsListProps = ComponentProps<typeof ProductsList>;
 export default function Edit(props: {
-  attributes: LandingPageProductsProps;
-  setAttributes: (props: Partial<LandingPageProductsProps>) => void;
+  attributes: ProductsListProps;
+  setAttributes: (props: Partial<ProductsListProps>) => void;
 }) {
   const [data, setData] = useState<WP_REST_API_Post[]>();
 
@@ -21,10 +21,8 @@ export default function Edit(props: {
   }, []);
 
   return (
-    <Editor {...props} blockConfig={{ name: blockConfig.name }}>
-      <ThemeRegistry>
-        <LandingPageProducts products={data ?? []} />
-      </ThemeRegistry>
+    <Editor {...props} blockConfig={blockConfig}>
+      <ProductsList {...props.attributes} products={data ?? []} />
     </Editor>
   );
 }

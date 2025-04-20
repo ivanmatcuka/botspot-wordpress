@@ -32,7 +32,7 @@
     "wp-types": "^4.67.1"
   },
   "dependencies": {
-    "@botspot/ui": "^1.0.147",
+    "@botspot/ui": "^1.1.2",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@smakss/react-scroll-direction": "^4.2.0",

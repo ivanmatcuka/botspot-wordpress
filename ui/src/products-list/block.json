@@ -1,12 +1,20 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "ui/landing-page-products",
+  "name": "ui/products-list",
   "version": "0.1.0",
-  "title": "Landing Page Products",
+  "title": "Products list",
   "category": "botspot",
   "icon": "cart",
   "description": "The contents of this block can be set through WordPress products (custom post type) only.",
+  "attributes": {
+    "scrollable": {
+      "type": "boolean",
+      "default": false,
+      "name": "Scrollable",
+      "description": "When present, it specifies that the products should be scrollable."
+    }
+  },
   "textdomain": "botspot-landing-page-products",
   "editorScript": "file:./index.js"
 }

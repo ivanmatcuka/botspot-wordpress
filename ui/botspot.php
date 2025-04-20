@@ -6,7 +6,7 @@
  * Version:           0.1.0
  * Requires at least: 6.7
  * Requires PHP:      7.4
- * Requires Plugins:  contact-form-to-any-api, contact-form-7
+ * Requires Plugins:  contact-form-to-any-api, contact-form-7, rest-api-blocks
  * Author:            Ivan Matcuka
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -39,6 +39,11 @@ function botspot_init()
 
 		return $categories;
 	});
+
+	/**
+	 * Exposes menus to the REST API.
+	 */
+	add_filter('rest_menu_read_access', '__return_true');
 
 	/**
 	 * Registers the block(s) metadata from the `blocks-manifest.php` and registers the block type(s)
@@ -86,12 +91,36 @@ function get_cf7_forms_public($data)
 
 	return wp_send_json($form);
 }
+function get_menu_by_slug_public($data)
+{
+	return wp_send_json(wp_get_nav_menu_items($data["slug"]));
+}
 
-add_action('init', 'botspot_init');
-add_action('rest_api_init', function () {
+function get_menus_public()
+{
+	return wp_send_json(wp_get_nav_menus());
+}
+
+function init_rest_api()
+{
 	register_rest_route('botspot/v1', '/forms/(?P<id>\d+)', [
 		'methods'  => 'GET',
 		'callback' => 'get_cf7_forms_public',
 		'permission_callback' => '__return_true',
 	]);
-});
+
+	register_rest_route('botspot/v1', '/menus/(?P<slug>.+)', [
+		'methods'  => 'GET',
+		'callback' => 'get_menu_by_slug_public',
+		'permission_callback' => '__return_true',
+	]);
+
+	register_rest_route('botspot/v1', '/menus', [
+		'methods'  => 'GET',
+		'callback' => 'get_menus_public',
+		'permission_callback' => '__return_true',
+	]);
+}
+
+add_action('init', 'botspot_init');
+add_action('rest_api_init', 'init_rest_api');
