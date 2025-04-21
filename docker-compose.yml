@@ -40,7 +40,7 @@ services:
     volumes:
       - ./wordpress:/var/www/html
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
-      # - ./ui:/var/www/html/wp-content/plugins/botspot
+      - ./ui:/var/www/html/wp-content/plugins/botspot
     restart: always
     networks:
       - proxy-network
