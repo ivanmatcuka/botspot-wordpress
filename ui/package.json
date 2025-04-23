@@ -30,7 +30,7 @@
     "wp-types": "^4.67.1"
   },
   "dependencies": {
-    "@botspot/ui": "git+ssh://git@github.com/ivanmatcuka/botspot-ui.git",
+    "@botspot/ui": "github:ivanmatcuka/botspot-ui",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@wordpress/compose": "^7.9.0",

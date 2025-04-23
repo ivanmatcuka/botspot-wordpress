@@ -7,10 +7,6 @@
   "category": "botspot",
   "icon": "media-video",
   "description": "Generic media block. Can be either a video or an image.",
-  "example": {},
-  "supports": {
-    "html": false
-  },
   "attributes": {
     "assetUrl": {
       "type": "string",

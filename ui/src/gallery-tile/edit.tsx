@@ -3,6 +3,7 @@ import { InnerBlocks } from '@wordpress/block-editor';
 import { ComponentProps } from 'react';
 
 import Editor from '../Editor';
+import { BlockMetadata } from '../types';
 import blockConfig from './block.json';
 
 type GalleryTileProps = ComponentProps<typeof GalleryTile>;
@@ -11,7 +12,7 @@ export default function Edit(props: {
   setAttributes: (updated: Partial<GalleryTileProps>) => void;
 }) {
   return (
-    <Editor {...props} blockConfig={blockConfig}>
+    <Editor {...props} config={blockConfig as BlockMetadata}>
       <GalleryTile {...props.attributes}>
         <InnerBlocks
           allowedBlocks={[

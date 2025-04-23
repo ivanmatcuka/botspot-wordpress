@@ -4,7 +4,7 @@ import { StandaloneJobs as Jobs } from '@botspot/ui/standalone';
 import { ComponentProps, useEffect, useState } from 'react';
 
 import Editor from '../Editor';
-import { getJobs } from '../utils';
+import { getJobs } from '../service';
 import blockConfig from './block.json';
 
 type JobsProps = ComponentProps<typeof Jobs>;
@@ -21,7 +21,7 @@ export default function Edit(props: {
   }, []);
 
   return (
-    <Editor {...props} blockConfig={{ name: blockConfig.name }}>
+    <Editor {...props} config={{ name: blockConfig.name }}>
       <Jobs jobs={data ?? []} />
     </Editor>
   );

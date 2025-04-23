@@ -10,22 +10,28 @@ import {
 } from '@wordpress/components';
 import { JsonEditor } from 'json-edit-react';
 
-export type DynamicBlockSettingsPanelProps<
-  T extends Record<string, string>,
-  C extends Record<string, string>,
-> = {
-  attributes: T;
-  config: C;
-  setAttributes: (updated: Partial<T>) => void;
+import { BlockMetadata, GenericComponentProps } from './types';
+
+export type DynamicBlockSettingsPanelProps<A> = {
+  attributes: A;
+  configAttributes: NonNullable<BlockMetadata['attributes']>;
+  setAttributes: (updated: Partial<A>) => void;
 };
-export function DynamicBlockSettingsPanel<
-  T extends Record<string, any>,
-  C extends Record<string, any>,
->({ attributes, config, setAttributes }: DynamicBlockSettingsPanelProps<T, C>) {
+export function DynamicBlockSettingsPanel<A extends GenericComponentProps>({
+  attributes,
+  configAttributes,
+  setAttributes,
+}: DynamicBlockSettingsPanelProps<A>) {
+  const onChange = (key: string, option: A[string]) => {
+    setAttributes({
+      [key]: option,
+    } as A);
+  };
+
   return (
     <Panel header="Properties">
-      {Object.entries(config).map(([key, attrConfig]) => {
-        const value = attributes[key];
+      {Object.entries(configAttributes).map(([key, attrConfig]) => {
+        const value = attributes[key] as string | number | boolean;
         const label = attrConfig.name || key;
         const description = attrConfig.description || key;
         const controlType = attrConfig.type;
@@ -37,15 +43,12 @@ export function DynamicBlockSettingsPanel<
             if (attrConfig.enum) {
               input = (
                 <>
-                  <Text>{value}</Text>
+                  <Text>{label}</Text>
                   <DropdownMenu
-                    controls={attrConfig.enum.map((option: string) => ({
+                    controls={attrConfig.enum.map((option) => ({
                       isActive: value === option,
                       title: option,
-                      onClick: () =>
-                        setAttributes({
-                          [key]: option,
-                        } as Partial<T>),
+                      onClick: () => onChange(key, option as A[string]),
                     }))}
                     label={label}
                   />
@@ -55,52 +58,36 @@ export function DynamicBlockSettingsPanel<
             }
             input = (
               <TextControl
-                onChange={(val) =>
-                  setAttributes({
-                    [key]: val,
-                  } as Partial<T>)
-                }
-                value={value || ''}
+                onChange={(val) => onChange(key, val as A[string])}
+                value={String(value)}
               />
             );
             break;
           case 'boolean':
             input = (
               <ToggleControl
-                onChange={(val) =>
-                  setAttributes({
-                    [key]: val,
-                  } as Partial<T>)
-                }
                 checked={!!value}
                 label={!!value ? 'true' : 'false'}
+                onChange={(val) => onChange(key, val as A[string])}
               />
             );
             break;
           case 'number':
             input = (
               <TextControl
-                onChange={(val) =>
-                  setAttributes({
-                    [key]: val ? Number(val) : undefined,
-                  } as Partial<T>)
-                }
                 label={label}
+                onChange={(val) => onChange(key, val as A[string])}
                 type="number"
-                value={value || ''}
+                value={parseInt(String(value))}
               />
             );
             break;
           case 'object':
             input = (
               <JsonEditor
-                onUpdate={(val) =>
-                  setAttributes({
-                    [key]: val.newData,
-                  } as Partial<T>)
-                }
                 data={value}
                 indent={2}
+                onUpdate={(val) => onChange(key, val.newData as A[string])}
                 rootFontSize={10}
                 rootName="settings"
                 restrictAdd

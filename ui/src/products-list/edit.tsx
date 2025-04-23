@@ -4,7 +4,8 @@ import { StandaloneProductsList as ProductsList } from '@botspot/ui';
 import { ComponentProps, useEffect, useState } from 'react';
 
 import Editor from '../Editor';
-import { getProducts } from '../utils';
+import { getProducts } from '../service';
+import { BlockMetadata } from '../types';
 import blockConfig from './block.json';
 
 type ProductsListProps = ComponentProps<typeof ProductsList>;
@@ -21,7 +22,7 @@ export default function Edit(props: {
   }, []);
 
   return (
-    <Editor {...props} blockConfig={blockConfig}>
+    <Editor {...props} config={blockConfig as BlockMetadata}>
       <ProductsList {...props.attributes} products={data ?? []} />
     </Editor>
   );

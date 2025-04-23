@@ -6,20 +6,18 @@ import '@botspot/ui/dist/ui.css';
 import { ReactNode, useEffect, useState } from 'react';
 
 import { DynamicBlockSettingsPanel } from './InspectorPanel';
+import { BlockMetadata, GenericComponentProps } from './types';
 
-export default function Editor<
-  P extends Record<string, any>,
-  C extends { attributes?: Record<string, any>; name: string },
->({
+export default function Editor<A extends GenericComponentProps>({
   attributes,
-  blockConfig,
   children,
+  config,
   setAttributes,
 }: {
-  attributes: P;
-  blockConfig: C;
+  attributes: A;
   children: ReactNode;
-  setAttributes: (updated: Partial<P>) => void;
+  config: BlockMetadata;
+  setAttributes: (updated: Partial<A>) => void;
 }) {
   const [emotionCache, setEmotionCache] = useState<EmotionCache | null>();
   const [ownerDocument, setOwnerDocument] = useState<Document | null>(null);
@@ -28,7 +26,7 @@ export default function Editor<
       const { ownerDocument } = element;
       setOwnerDocument(ownerDocument);
     },
-    [blockConfig],
+    [config],
   );
   const blockProps = useBlockProps({ ref });
 
@@ -44,12 +42,12 @@ export default function Editor<
 
   return (
     <p {...blockProps}>
-      <div id={`emotion-root-${blockConfig?.name}`}>
-        {!!Object.keys(attributes).length && (
+      <div id={`emotion-root-${config.name}`}>
+        {config.attributes && !!Object.keys(config.attributes).length && (
           <InspectorControls>
             <DynamicBlockSettingsPanel
               attributes={attributes}
-              config={blockConfig?.attributes ?? {}}
+              configAttributes={config.attributes}
               setAttributes={setAttributes}
             />
           </InspectorControls>

@@ -1,11 +1,12 @@
 import {
-  getProductsFunction,
   StandaloneProductsTopic as ProductsTopic,
   ThemeRegistry,
 } from '@botspot/ui';
 import { ComponentProps } from 'react';
 
 import Editor from '../Editor';
+import { getProducts } from '../service';
+import { BlockMetadata } from '../types';
 import blockConfig from './block.json';
 
 type ProductsTopicProps = ComponentProps<typeof ProductsTopic>;
@@ -14,11 +15,11 @@ export default function Edit(props: {
   setAttributes: (props: Partial<ProductsTopicProps>) => void;
 }) {
   return (
-    <Editor {...props} blockConfig={blockConfig}>
+    <Editor {...props} config={blockConfig as BlockMetadata}>
       <ThemeRegistry>
         <ProductsTopic
           {...props.attributes}
-          getProducts={getProductsFunction('')}
+          getProducts={getProducts}
           onChange={() => ({})}
         />
       </ThemeRegistry>
