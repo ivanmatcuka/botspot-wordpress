@@ -46,6 +46,10 @@
       "name": "Text",
       "description": "Button text. Technically is React's 'children'."
     },
+    "startIconName": {
+      "type": "string",
+      "name": "Start Icon Name"
+    },
     "disabled": {
       "type": "boolean",
       "default": false,

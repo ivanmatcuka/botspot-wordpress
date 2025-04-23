@@ -43,7 +43,7 @@ export function DynamicBlockSettingsPanel<A extends GenericComponentProps>({
             if (attrConfig.enum) {
               input = (
                 <>
-                  <Text>{label}</Text>
+                  <Text>{value}</Text>
                   <DropdownMenu
                     controls={attrConfig.enum.map((option) => ({
                       isActive: value === option,

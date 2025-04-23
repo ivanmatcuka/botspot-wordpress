@@ -39,6 +39,7 @@ export type BlockMetadata = {
   editorScript?: string | string[];
   editorStyle?: string | string[];
   example?: BlockExample;
+  hidden?: boolean;
   icon?: string | BlockIcon;
   keywords?: string[];
   name: string;
