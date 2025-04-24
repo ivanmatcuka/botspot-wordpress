@@ -48,7 +48,17 @@
     },
     "startIconName": {
       "type": "string",
-      "name": "Start Icon Name"
+      "name": "Start Icon Name",
+      "enum": ["", "Facebook", "Instagram", "LinkedIn", "X"],
+      "default": "",
+      "description": "Pick a MUI icon name."
+    },
+    "endIconName": {
+      "type": "string",
+      "name": "End Icon Name",
+      "enum": ["", "Facebook", "Instagram", "LinkedIn", "X"],
+      "default": "",
+      "description": "Pick a MUI icon name."
     },
     "disabled": {
       "type": "boolean",

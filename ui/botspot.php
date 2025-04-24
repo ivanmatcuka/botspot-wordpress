@@ -2,11 +2,11 @@
 
 /**
  * Plugin Name:       botspot
- * Description:       botspot UI
- * Version:           0.1.0
+ * Description:       botspot UI components
+ * Version:           0.1.2
  * Requires at least: 6.7
  * Requires PHP:      7.4
- * Requires Plugins:  contact-form-to-any-api, contact-form-7, rest-api-blocks
+ * Requires Plugins:  contact-form-to-any-api, contact-form-7, rest-api-blocks, classic-menu-in-navigation-block
  * Author:            Ivan Matcuka
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -16,7 +16,7 @@
  */
 
 if (! defined('ABSPATH')) {
-	exit; // Exit if accessed directly.
+	exit;
 }
 /**
  * Registers the block using a `blocks-manifest.php` file, which improves the performance of block type registration.
@@ -91,6 +91,7 @@ function get_cf7_forms_public($data)
 
 	return wp_send_json($form);
 }
+
 function get_menu_by_slug_public($data)
 {
 	return wp_send_json(wp_get_nav_menu_items($data["slug"]));
