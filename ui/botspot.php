@@ -102,6 +102,20 @@ function get_menus_public()
 	return wp_send_json(wp_get_nav_menus());
 }
 
+function clear_gellary($data)
+{
+	$field = acf_maybe_get_field($data['id']);
+	$result = acf_update_metadata_by_field($data['postId'], $field, null);
+
+	return wp_send_json($result);
+
+	if (!$result) {
+		return wp_send_json('Error occured!');
+	}
+
+	return wp_send_json($result);
+}
+
 function init_rest_api()
 {
 	register_rest_route('botspot/v1', '/forms/(?P<id>\d+)', [
@@ -121,7 +135,58 @@ function init_rest_api()
 		'callback' => 'get_menus_public',
 		'permission_callback' => '__return_true',
 	]);
+
+	register_rest_route('botspot/v1', '/clear/(?P<id>.+)/(?P<postId>\d+)', [
+		'methods'  => 'POST',
+		'callback' => 'clear_gellary',
+		'permission_callback' => '__return_true',
+	]);
 }
 
 add_action('init', 'botspot_init');
 add_action('rest_api_init', 'init_rest_api');
+
+
+function clear_button($field)
+{
+	echo "<p style='margin: 8px 0 0 0'><a href='#' class='acf-button button button-primary acf-gallery-clear' data-id='{$field['id']}'>Conviniently Clear Images</a></p>";
+}
+
+add_action('acf/render_field/name=animation', 'clear_button');
+
+function my_acf_input_admin_footer()
+{
+
+?>
+	<script type="text/javascript">
+		(function() {
+			let params = new URLSearchParams(document.location.search);
+			let postId = params.get("post");
+
+			function clearGallery(fieldId) {
+				fetch(`/wp-json/botspot/v1/clear/${fieldId.split('-')?.[1]}/${postId}`, {
+					method: 'POST',
+					headers: {
+						"Content-Type": "application/json",
+					}
+				}).then((resonse) => {
+					if (!resonse.ok) {
+						console.error('Couldn\'t clear the gallery');
+						return;
+					}
+
+					window.location.reload();
+				});
+			};
+
+			document.querySelector('.acf-gallery-clear')?.addEventListener('click', (element) => {
+				const fieldId = element.target.dataset.id;
+				clearGallery(fieldId);
+			})
+		})();
+	</script>
+<?php
+
+}
+
+add_action('acf/input/admin_footer', 'my_acf_input_admin_footer');
