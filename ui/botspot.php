@@ -3,7 +3,7 @@
 /**
  * Plugin Name:       botspot
  * Description:       botspot UI components
- * Version:           0.1.2
+ * Version:           0.1.6
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Requires Plugins:  contact-form-to-any-api, contact-form-7, rest-api-blocks, classic-menu-in-navigation-block
@@ -149,7 +149,7 @@ add_action('rest_api_init', 'init_rest_api');
 
 function clear_button($field)
 {
-	echo "<p style='margin: 8px 0 0 0'><a href='#' class='acf-button button button-primary acf-gallery-clear' data-id='{$field['id']}'>Conviniently Clear Images</a></p>";
+	echo "<p style='margin: 8px 0 0 0'><a href='#' class='acf-button button button-primary acf-gallery-clear' data-id='{$field['id']}'>Conveniently Clear Images</a></p>";
 }
 
 add_action('acf/render_field/name=animation', 'clear_button');

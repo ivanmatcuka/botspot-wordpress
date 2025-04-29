@@ -23,7 +23,7 @@
     },
     "imgUrl": {
       "type": "string",
-      "default": "https://picsum.photos/id/237/400/200",
+      "default": "https://botspot.live-website.com/wp-content/uploads/2025/04/1.png",
       "name": "Image URL",
       "description": "Image URL. For more info: https://www.w3schools.com/tags/att_img_src.asp"
     }
