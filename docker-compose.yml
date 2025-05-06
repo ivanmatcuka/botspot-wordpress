@@ -41,6 +41,7 @@ services:
       - ./wordpress:/var/www/html
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
       - ./ui:/var/www/html/wp-content/plugins/botspot
+      - ./theme:/var/www/html/wp-content/themes/botspot
     restart: always
     networks:
       - proxy-network
