@@ -3,7 +3,7 @@
 /**
  * Plugin Name:       botspot
  * Description:       botspot UI components
- * Version:           0.1.6
+ * Version:           0.1.7
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Requires Plugins:  contact-form-to-any-api, contact-form-7, rest-api-blocks, classic-menu-in-navigation-block
