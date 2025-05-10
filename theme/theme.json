@@ -14,50 +14,60 @@
         { "name": "Error", "slug": "error", "color": "#D02D24" },
         { "name": "Black", "slug": "black", "color": "#151515" },
         { "name": "White", "slug": "white", "color": "#FFFFFF" },
-        { "name": "Grey 100", "slug": "grey-100", "color": "#F3F3F3" },
-        { "name": "Grey 200", "slug": "grey-200", "color": "#AEAEAE" },
-        { "name": "Grey 700", "slug": "grey-700", "color": "#616161" },
+        { "name": "Grey (100)", "slug": "grey-100", "color": "#F3F3F3" },
+        { "name": "Grey (200)", "slug": "grey-200", "color": "#AEAEAE" },
+        { "name": "Grey (700)", "slug": "grey-700", "color": "#616161" },
         { "name": "Info", "slug": "info", "color": "#3A3A3A" }
       ]
     },
     "layout": {
-      "contentSize": "620px",
-      "wideSize": "1280px"
+      "contentSize": "1280px",
+      "wideSize": "1920px"
     },
     "spacing": {
       "spacingScale": {
-        "steps": 0
+        "steps": 8
       },
       "spacingSizes": [
         {
           "name": "1",
-          "size": "1rem",
-          "slug": "10"
+          "size": "8px",
+          "slug": "8px"
         },
         {
           "name": "2",
-          "size": "min(1.5rem, 2vw)",
-          "slug": "20"
+          "size": "16px",
+          "slug": "16px"
         },
         {
           "name": "3",
-          "size": "min(2.5rem, 3vw)",
-          "slug": "30"
+          "size": "24px",
+          "slug": "24px"
         },
         {
           "name": "4",
-          "size": "min(4rem, 5vw)",
-          "slug": "40"
+          "size": "32px",
+          "slug": "32px"
         },
         {
           "name": "5",
-          "size": "min(6.5rem, 8vw)",
-          "slug": "50"
+          "size": "40px",
+          "slug": "40px"
         },
         {
           "name": "6",
-          "size": "min(10.5rem, 13vw)",
-          "slug": "60"
+          "size": "48px",
+          "slug": "48px"
+        },
+        {
+          "name": "7",
+          "size": "56px",
+          "slug": "56px"
+        },
+        {
+          "name": "8",
+          "size": "64px",
+          "slug": "64px"
         }
       ],
       "units": ["%", "px", "em", "rem", "vh", "vw"]
@@ -71,14 +81,15 @@
         }
       ],
       "fontSizes": [
-        { "name": "H1", "slug": "h1", "size": "60px" },
-        { "name": "H2", "slug": "h2", "size": "40px" },
-        { "name": "H3", "slug": "h3", "size": "32px" },
-        { "name": "H4", "slug": "h4", "size": "24px" },
-        { "name": "H5", "slug": "h5", "size": "20px" },
-        { "name": "Body", "slug": "body", "size": "16px" },
-        { "name": "Button", "slug": "body", "size": "16px" },
-        { "name": "Caption", "slug": "caption", "size": "12px" }
+        { "name": "Heading 1", "slug": "h1", "size": "60px" },
+        { "name": "Heading 2", "slug": "h2", "size": "40px" },
+        { "name": "Heading 3", "slug": "h3", "size": "32px" },
+        { "name": "Heading 4", "slug": "h4", "size": "24px" },
+        { "name": "Heading 5", "slug": "h5", "size": "20px" },
+        { "name": "Body 1", "slug": "body1", "size": "16px" },
+        { "name": "Body 2", "slug": "body2", "size": "12px" },
+        { "name": "Caption", "slug": "caption", "size": "12px" },
+        { "name": "Button", "slug": "body", "size": "16px" }
       ],
       "lineHeight": true
     },
@@ -694,7 +705,7 @@
       "fontSize": "var(--wp--preset--font-size--medium)",
       "fontStyle": "normal",
       "fontWeight": "400",
-      "lineHeight": "1.55"
+      "lineHeight": "1.2"
     },
     "css": ":where(.wp-site-blocks *:focus){outline-width:2px;outline-style:solid}"
   },
@@ -708,38 +719,6 @@
       "area": "footer",
       "name": "footer",
       "title": "Footer"
-    },
-    {
-      "area": "uncategorized",
-      "name": "sidebar",
-      "title": "Sidebar"
-    },
-    {
-      "area": "uncategorized",
-      "name": "post-meta",
-      "title": "Post Meta"
-    }
-  ],
-  "customTemplates": [
-    {
-      "name": "page-no-title",
-      "postTypes": ["page"],
-      "title": "Page No Title"
-    },
-    {
-      "name": "page-with-sidebar",
-      "postTypes": ["page"],
-      "title": "Page with Sidebar"
-    },
-    {
-      "name": "page-wide",
-      "postTypes": ["page"],
-      "title": "Page with Wide Image"
-    },
-    {
-      "name": "single-with-sidebar",
-      "postTypes": ["post"],
-      "title": "Single with Sidebar"
     }
   ]
 }

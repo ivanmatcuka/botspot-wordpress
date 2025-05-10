@@ -15,6 +15,8 @@
  * @package botspot
  */
 
+use function WP_REST_Blocks\Data\get_blocks;
+
 if (! defined('ABSPATH')) {
 	exit;
 }
@@ -97,6 +99,15 @@ function get_menu_by_slug_public($data)
 	return wp_send_json(wp_get_nav_menu_items($data["slug"]));
 }
 
+function get_template_by_slug_public($data)
+{
+	$template = get_block_template("botspot" . "//" . $data["slug"]);
+	return wp_send_json(array(
+		'blocks' => get_blocks($template->content),
+		'data' => $template
+	));
+}
+
 function get_menus_public()
 {
 	return wp_send_json(wp_get_nav_menus());
@@ -127,6 +138,12 @@ function init_rest_api()
 	register_rest_route('botspot/v1', '/menus/(?P<slug>.+)', [
 		'methods'  => 'GET',
 		'callback' => 'get_menu_by_slug_public',
+		'permission_callback' => '__return_true',
+	]);
+
+	register_rest_route('botspot/v1', '/templates/(?P<slug>.+)', [
+		'methods'  => 'GET',
+		'callback' => 'get_template_by_slug_public',
 		'permission_callback' => '__return_true',
 	]);
 
