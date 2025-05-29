@@ -1,4 +1,4 @@
-import { StandaloneSecondaryBlock as SecondaryBlock } from '@botspot/ui/standalone';
+import { SecondaryBlock } from '@botspot/ui';
 import { InnerBlocks } from '@wordpress/block-editor';
 import { ComponentProps } from 'react';
 

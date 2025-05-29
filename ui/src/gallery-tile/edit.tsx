@@ -1,4 +1,4 @@
-import { StandaloneGalleryTile as GalleryTile } from '@botspot/ui/standalone';
+import { GalleryTile } from '@botspot/ui';
 import { InnerBlocks } from '@wordpress/block-editor';
 import { ComponentProps } from 'react';
 

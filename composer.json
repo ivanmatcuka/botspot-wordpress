@@ -1,6 +1,6 @@
 {
   "require": {
-    "johnpbloch/wordpress": "^6.7",
+    "johnpbloch/wordpress": "6.8.1",
     "twig/twig": "^3.0",
     "buzzingpixel/twig-switch": "^1.0"
   },

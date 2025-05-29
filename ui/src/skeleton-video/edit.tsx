@@ -1,4 +1,4 @@
-import { StandaloneSkeletonVideo as SkeletonVideo } from '@botspot/ui/standalone';
+import { SkeletonVideo } from '@botspot/ui';
 import { ComponentProps } from 'react';
 
 import Editor from '../Editor';

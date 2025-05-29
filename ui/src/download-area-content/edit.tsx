@@ -1,4 +1,4 @@
-import { StandaloneDownloadAreaContent as DownloadAreaContent } from '@botspot/ui/standalone';
+import { DownloadAreaContent } from '@botspot/ui';
 import { InnerBlocks } from '@wordpress/block-editor';
 import { ComponentProps, useEffect, useState } from 'react';
 import { WP_REST_API_Post } from 'wp-types';

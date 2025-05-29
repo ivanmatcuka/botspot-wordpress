@@ -1,5 +1,5 @@
 import { CustomPost } from '@botspot/ui';
-import { StandalonePeople as People } from '@botspot/ui/standalone';
+import { People } from '@botspot/ui';
 import { ComponentProps, useEffect, useState } from 'react';
 
 import Editor from '../Editor';

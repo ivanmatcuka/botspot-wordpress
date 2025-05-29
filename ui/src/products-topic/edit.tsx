@@ -1,7 +1,4 @@
-import {
-  StandaloneProductsTopic as ProductsTopic,
-  ThemeRegistry,
-} from '@botspot/ui';
+import { ProductsTopic, ThemeRegistry } from '@botspot/ui';
 import { ComponentProps } from 'react';
 
 import Editor from '../Editor';

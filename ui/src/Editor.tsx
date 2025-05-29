@@ -1,8 +1,9 @@
+import { ThemeRegistry } from '@botspot/ui';
 import createCache, { EmotionCache } from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { useRefEffect } from '@wordpress/compose';
 import '@botspot/ui/dist/ui.css';
+import { useRefEffect } from '@wordpress/compose';
 import { ReactNode, useEffect, useState } from 'react';
 
 import { DynamicBlockSettingsPanel } from './InspectorPanel';
@@ -43,18 +44,20 @@ export default function Editor<A extends GenericComponentProps>({
   return (
     <p {...blockProps}>
       <div id={`emotion-root-${config.name}`}>
-        {config.attributes && !!Object.keys(config.attributes).length && (
-          <InspectorControls>
-            <DynamicBlockSettingsPanel
-              attributes={attributes}
-              configAttributes={config.attributes}
-              setAttributes={setAttributes}
-            />
-          </InspectorControls>
-        )}
-        {!!emotionCache && (
-          <CacheProvider value={emotionCache}>{children}</CacheProvider>
-        )}
+        <ThemeRegistry>
+          {config.attributes && !!Object.keys(config.attributes).length && (
+            <InspectorControls>
+              <DynamicBlockSettingsPanel
+                attributes={attributes}
+                configAttributes={config.attributes}
+                setAttributes={setAttributes}
+              />
+            </InspectorControls>
+          )}
+          {!!emotionCache && (
+            <CacheProvider value={emotionCache}>{children}</CacheProvider>
+          )}
+        </ThemeRegistry>
       </div>
     </p>
   );

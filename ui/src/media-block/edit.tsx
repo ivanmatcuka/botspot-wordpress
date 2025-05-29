@@ -1,4 +1,4 @@
-import { StandaloneMediaBlock as MediaBlock } from '@botspot/ui/standalone';
+import { MediaBlock } from '@botspot/ui';
 import { ComponentProps } from 'react';
 
 import Editor from '../Editor';

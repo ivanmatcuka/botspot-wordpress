@@ -1,4 +1,4 @@
-import { StandalonePageContainer as PageContainer } from '@botspot/ui/standalone';
+import { PageContainer } from '@botspot/ui';
 import { InnerBlocks } from '@wordpress/block-editor';
 import { ComponentProps } from 'react';
 

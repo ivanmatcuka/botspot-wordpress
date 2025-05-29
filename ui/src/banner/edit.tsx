@@ -1,4 +1,4 @@
-import { StandaloneBanner as Banner } from '@botspot/ui/standalone';
+import { Banner } from '@botspot/ui';
 import { InnerBlocks } from '@wordpress/block-editor';
 import { ComponentProps } from 'react';
 

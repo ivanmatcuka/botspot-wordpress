@@ -1,4 +1,4 @@
-import { StandaloneTile as Tile } from '@botspot/ui/standalone';
+import { Tile } from '@botspot/ui';
 import { InnerBlocks } from '@wordpress/block-editor';
 import { ComponentProps } from 'react';
 

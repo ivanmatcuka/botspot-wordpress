@@ -1,4 +1,4 @@
-import { StandalonePosts as Posts } from '@botspot/ui/standalone';
+import { Posts } from '@botspot/ui';
 import { ComponentProps } from 'react';
 
 import Editor from '../Editor';

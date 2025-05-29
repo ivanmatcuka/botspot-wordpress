@@ -1,4 +1,4 @@
-import { ThemeRegistry, Typography } from '@botspot/ui';
+import { Typography } from '@botspot/ui';
 import { ComponentProps } from 'react';
 
 import Editor from '../Editor';
@@ -12,9 +12,7 @@ export default function Edit(props: {
 }) {
   return (
     <Editor {...props} config={blockConfig as BlockMetadata}>
-      <ThemeRegistry>
-        <Typography {...props.attributes} />
-      </ThemeRegistry>
+      <Typography {...props.attributes} />
     </Editor>
   );
 }

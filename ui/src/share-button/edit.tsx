@@ -1,4 +1,4 @@
-import { StandaloneButton as Button } from '@botspot/ui/standalone';
+import { Button } from '@botspot/ui';
 import { ComponentProps } from 'react';
 
 import Editor from '../Editor';

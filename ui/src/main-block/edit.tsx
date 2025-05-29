@@ -1,4 +1,4 @@
-import { StandaloneMainBlock as MainBlock } from '@botspot/ui/standalone';
+import { MainBlock } from '@botspot/ui';
 import { InnerBlocks } from '@wordpress/block-editor';
 import { ComponentProps } from 'react';
 

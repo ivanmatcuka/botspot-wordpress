@@ -1,4 +1,4 @@
-import { StandaloneGallery as Gallery } from '@botspot/ui/standalone';
+import { Gallery } from '@botspot/ui';
 import { InnerBlocks } from '@wordpress/block-editor';
 import { ComponentProps } from 'react';
 

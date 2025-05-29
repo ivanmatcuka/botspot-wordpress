@@ -1,4 +1,4 @@
-import { StandaloneDynamicForm as DynamicForm } from '@botspot/ui/standalone';
+import { DynamicForm } from '@botspot/ui';
 import { InnerBlocks } from '@wordpress/block-editor';
 import { ComponentProps } from 'react';
 
