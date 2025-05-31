@@ -241,40 +241,73 @@ function botspot_acf_input_admin_footer()
 add_action('acf/input/admin_footer', 'botspot_acf_input_admin_footer');
 
 /**
- * Filter REST API post/page responses to return flat titles, flat excerpts, and duplicate of ACF field 'info'.
+ * Register custom endpoints for flat fields
  */
-function botspot_rest_prepare_flat_fields($response, $post, $request)
+function botspot_register_flat_fields_routes()
 {
-	// Only apply to posts, pages, and custom post types
-	if (!is_a($post, 'WP_Post')) {
-		return $response;
-	}
+	// Single post flat fields
+	register_rest_route('botspot/v1', '/flat-post/(?P<id>\\d+)', array(
+		'methods' => 'GET',
+		'callback' => function ($request) {
+			$post = get_post($request['id']);
+			if (!$post) {
+				return new WP_Error('not_found', 'Post not found', array('status' => 404));
+			}
+			$data = array(
+				'id' => $post->ID,
+				'slug' => $post->post_name,
+				'flat_title' => get_the_title($post),
+				'flat_excerpt' => get_the_excerpt($post),
+				'featured_image' => get_the_post_thumbnail_url($post, 'full'),
+				'info' => function_exists('get_fields') ? get_fields($post->ID) : [],
+				'blocks' => get_blocks(get_post_field('post_content', $post->ID)),
+				'template' => get_page_template_slug($post->ID),
+			);
+			return rest_ensure_response($data);
+		},
+		'permission_callback' => '__return_true',
+	));
+	// List of posts flat fields (optionally filter by type)
+	register_rest_route('botspot/v1', '/flat-posts', array(
+		'methods' => 'GET',
+		'callback' => function ($request) {
+			$args = array(
+				'post_type' => $request['type'],
+				'posts_per_page' => $request['per_page'],
+				'paged' => $request['page'],
+				'category_name' => $request['category'],
+				'post_status' => 'publish',
+				'name' => $request['slug'],
+			);
 
-	// Get the current data
-	$data = $response->get_data();
+			$query = new WP_Query($args);
+			$posts = array();
+			foreach ($query->posts as $post) {
+				$posts[] = array(
+					'id' => $post->ID,
+					'slug' => $post->post_name,
+					'flat_title' => get_the_title($post),
+					'flat_excerpt' => get_the_excerpt($post),
+					'featured_image' => get_the_post_thumbnail_url($post, 'full'),
+					'info' => function_exists('get_fields') ? get_fields($post->ID) : [],
+					'blocks' => get_blocks(get_post_field('post_content', $post->ID)),
+					'template' => get_page_template_slug($post->ID),
+				);
+			}
 
-	// Flatten title, excerpt, and featured image
-	$data['flat_title'] = isset($data['title']['rendered']) ? $data['title']['rendered'] : '';
-	$data['flat_excerpt'] = isset($data['excerpt']['rendered']) ? $data['excerpt']['rendered'] : '';
-	$data['featured_image'] = '';
+			$response = rest_ensure_response($posts);
+			$response->header('X-WP-TotalPages', $query->max_num_pages);
 
-	if (!empty($data['featured_media'])) {
-		$media_id = $data['featured_media'];
-		$image = wp_get_attachment_image_src($media_id, 'full');
-
-		if ($image && is_array($image)) {
-			$data['featured_image'] = $image[0];
-		}
-	}
-
-	$data['info'] = $data['acf'] ?? [];
-	$data['blocks'] = $data['block_data'] ?? [];
-
-	$response->set_data($data);
-
-	return $response;
+			return $response;
+		},
+		'permission_callback' => '__return_true',
+		'args' => array(
+			'type' => array('required' => false, 'type' => 'string'),
+			'per_page' => array('required' => false, 'type' => 'integer'),
+			'page' => array('required' => false, 'type' => 'integer'),
+			'category' => array('required' => false, 'type' => 'string'),
+			'slug' => array('required' => false, 'type' => 'string'),
+		),
+	));
 }
-add_filter('rest_prepare_post', 'botspot_rest_prepare_flat_fields', 10, 3);
-add_filter('rest_prepare_page', 'botspot_rest_prepare_flat_fields', 10, 3);
-add_filter('rest_prepare_product', 'botspot_rest_prepare_flat_fields', 10, 3);
-add_filter('rest_prepare_area', 'botspot_rest_prepare_flat_fields', 10, 3);
+add_action('rest_api_init', 'botspot_register_flat_fields_routes');
