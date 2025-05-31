@@ -1,4 +1,6 @@
-import { ApiResponse, CustomPost } from '@botspot/ui';
+import { CustomPost } from '@botspot/ui';
+
+import { BasePost, Job, Product } from './types';
 
 const baseUrl = '/wp-json/wp/v2';
 const requestInit: RequestInit = {
@@ -23,7 +25,15 @@ export const getPosts = async (
   try {
     const data = await response.json();
     const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
-    return { count, data };
+
+    const mapProps = (post: BasePost) => ({
+      excerpt: post.flat_excerpt || '',
+      featuredImage: post.featured_image || '',
+      id: post.id,
+      title: post.flat_title || '',
+    });
+
+    return { count, data: data.map(mapProps) };
   } catch {
     return { count: 0, data: [] };
   }
@@ -31,7 +41,7 @@ export const getPosts = async (
 
 export const getPeople = async (): Promise<{
   count: number;
-  data: CustomPost[];
+  data: BasePost[];
 }> => {
   const category = await getCategory('people');
   if (!category) return { count: 0, data: [] };
@@ -52,7 +62,7 @@ export const getPeople = async (): Promise<{
 
 export const getJobs = async (): Promise<{
   count: number;
-  data: CustomPost[];
+  data: Job[];
 }> => {
   const category = await getCategory('jobs');
   if (!category) return { count: 0, data: [] };
@@ -85,7 +95,7 @@ export const getCategory = async (slug: string): Promise<CustomPost | null> => {
   }
 };
 
-export const getForm = async (formId?: number): Promise<ApiResponse | null> => {
+export const getForm = async (formId?: number): Promise<null> => {
   try {
     const response = await fetch(`/wp-json/botspot/v1/forms/${formId}`, {
       method: 'GET',
@@ -118,7 +128,16 @@ export const getProducts = async (): Promise<{
     const data = await response.json();
     const count = Number(response.headers.get('X-WP-TotalPages')) ?? 1;
 
-    return { count, data };
+    const mapProps = (product: Product) => ({
+      excerpt: product.flat_excerpt || '',
+      featuredImage: product.featured_image || '',
+      id: product.id,
+      info: product.info || {},
+      slug: product.slug || '',
+      title: product.flat_title || '',
+    });
+
+    return { count, data: data.map(mapProps) };
   } catch {
     return { count: 0, data: [] };
   }

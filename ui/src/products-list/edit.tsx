@@ -1,5 +1,3 @@
-import type { WP_REST_API_Post } from 'wp-types';
-
 import { ProductsList } from '@botspot/ui';
 import { ComponentProps, useEffect, useState } from 'react';
 
@@ -13,17 +11,15 @@ export default function Edit(props: {
   attributes: ProductsListProps;
   setAttributes: (props: Partial<ProductsListProps>) => void;
 }) {
-  const [data, setData] = useState<WP_REST_API_Post[]>();
+  const [data, setData] = useState<ProductsListProps['products']>([]);
 
   useEffect(() => {
-    getProducts().then(({ data }) => {
-      setData(data);
-    });
+    getProducts().then(({ data }) => setData(data));
   }, []);
 
   return (
     <Editor {...props} config={blockConfig as BlockMetadata}>
-      <ProductsList {...props.attributes} products={data ?? []} />
+      <ProductsList {...props.attributes} products={data} />
     </Editor>
   );
 }

@@ -239,3 +239,42 @@ function botspot_acf_input_admin_footer()
 <?php
 }
 add_action('acf/input/admin_footer', 'botspot_acf_input_admin_footer');
+
+/**
+ * Filter REST API post/page responses to return flat titles, flat excerpts, and duplicate of ACF field 'info'.
+ */
+function botspot_rest_prepare_flat_fields($response, $post, $request)
+{
+	// Only apply to posts, pages, and custom post types
+	if (!is_a($post, 'WP_Post')) {
+		return $response;
+	}
+
+	// Get the current data
+	$data = $response->get_data();
+
+	// Flatten title, excerpt, and featured image
+	$data['flat_title'] = isset($data['title']['rendered']) ? $data['title']['rendered'] : '';
+	$data['flat_excerpt'] = isset($data['excerpt']['rendered']) ? $data['excerpt']['rendered'] : '';
+	$data['featured_image'] = '';
+
+	if (!empty($data['featured_media'])) {
+		$media_id = $data['featured_media'];
+		$image = wp_get_attachment_image_src($media_id, 'full');
+
+		if ($image && is_array($image)) {
+			$data['featured_image'] = $image[0];
+		}
+	}
+
+	$data['info'] = $data['acf'] ?? [];
+	$data['blocks'] = $data['block_data'] ?? [];
+
+	$response->set_data($data);
+
+	return $response;
+}
+add_filter('rest_prepare_post', 'botspot_rest_prepare_flat_fields', 10, 3);
+add_filter('rest_prepare_page', 'botspot_rest_prepare_flat_fields', 10, 3);
+add_filter('rest_prepare_product', 'botspot_rest_prepare_flat_fields', 10, 3);
+add_filter('rest_prepare_area', 'botspot_rest_prepare_flat_fields', 10, 3);

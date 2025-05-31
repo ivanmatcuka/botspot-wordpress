@@ -1,5 +1,7 @@
 import type { ComponentProps, FC } from 'react';
 
+import { CustomFields } from '@botspot/ui';
+
 export type BlockAttribute = {
   attribute?: string;
   default?: unknown;
@@ -65,3 +67,21 @@ export type GenericComponentProps = Record<
   string,
   ComponentProps<FC> | undefined | null
 >;
+
+export type BasePost = {
+  content?: string;
+  featured_image?: string;
+  flat_excerpt?: string;
+  flat_title?: string;
+  id: number;
+  slug?: string;
+};
+
+export type Job = Pick<BasePost, 'id' | 'flat_title' | 'flat_excerpt'>;
+export type Person = Pick<
+  BasePost,
+  'id' | 'flat_title' | 'flat_excerpt' | 'slug' | 'featured_image'
+>;
+export type Product = {
+  info?: CustomFields;
+} & BasePost;
