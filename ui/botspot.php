@@ -3,7 +3,7 @@
 /**
  * Plugin Name:       botspot
  * Description:       botspot UI components
- * Version:           0.1.7
+ * Version:           0.2.0
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Requires Plugins:  contact-form-to-any-api, contact-form-7
@@ -188,6 +188,19 @@ function botspot_register_rest_routes()
 	register_rest_route('botspot/v1', '/clear/(?P<id>.+)/(?P<postId>\d+)', array(
 		'methods'             => 'POST',
 		'callback'            => 'clear_gallery',
+		'permission_callback' => '__return_true',
+	));
+	// Public endpoint to return the current global theme settings (not just theme.json)
+	register_rest_route('botspot/v1', '/theme', array(
+		'methods' => 'GET',
+		'callback' => function () {
+			if (!function_exists('wp_get_global_settings')) {
+				return new WP_Error('not_supported', 'wp_get_global_settings not available', array('status' => 500));
+			}
+
+			$settings = wp_get_global_settings();
+			return rest_ensure_response($settings);
+		},
 		'permission_callback' => '__return_true',
 	));
 }
