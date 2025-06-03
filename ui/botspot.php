@@ -15,6 +15,7 @@
  * @package botspot
  */
 
+
 // Exit if accessed directly
 if (! defined('ABSPATH')) {
 	exit;
@@ -253,19 +254,25 @@ function botspot_acf_input_admin_footer()
 }
 add_action('acf/input/admin_footer', 'botspot_acf_input_admin_footer');
 
+
 /**
  * Register custom endpoints for flat fields
  */
 function botspot_register_flat_fields_routes()
 {
+	$meta_helper = YoastSEO()->classes->get(Yoast\WP\SEO\Surfaces\Meta_Surface::class);
+
 	// Single post flat fields
 	register_rest_route('botspot/v1', '/flat-post/(?P<id>\\d+)', array(
 		'methods' => 'GET',
-		'callback' => function ($request) {
+		'callback' => function ($request) use ($meta_helper) {
 			$post = get_post($request['id']);
+
 			if (!$post) {
 				return new WP_Error('not_found', 'Post not found', array('status' => 404));
 			}
+
+			$meta = $meta_helper->for_post($post->ID);
 			$data = array(
 				'id' => $post->ID,
 				'slug' => $post->post_name,
@@ -275,6 +282,7 @@ function botspot_register_flat_fields_routes()
 				'info' => function_exists('get_fields') ? get_fields($post->ID) : [],
 				'blocks' => get_blocks(get_post_field('post_content', $post->ID)),
 				'template' => get_page_template_slug($post->ID),
+				'yoast_head_json' => $meta->get_head()->json,
 			);
 			return rest_ensure_response($data);
 		},
@@ -283,7 +291,7 @@ function botspot_register_flat_fields_routes()
 	// List of posts flat fields (optionally filter by type)
 	register_rest_route('botspot/v1', '/flat-posts', array(
 		'methods' => 'GET',
-		'callback' => function ($request) {
+		'callback' => function ($request) use ($meta_helper) {
 			$args = array(
 				'post_type' => $request['type'],
 				'posts_per_page' => $request['per_page'],
@@ -295,7 +303,9 @@ function botspot_register_flat_fields_routes()
 
 			$query = new WP_Query($args);
 			$posts = array();
+
 			foreach ($query->posts as $post) {
+				$meta = $meta_helper->for_post($post->ID);
 				$posts[] = array(
 					'id' => $post->ID,
 					'slug' => $post->post_name,
@@ -305,6 +315,7 @@ function botspot_register_flat_fields_routes()
 					'info' => function_exists('get_fields') ? get_fields($post->ID) : [],
 					'blocks' => get_blocks(get_post_field('post_content', $post->ID)),
 					'template' => get_page_template_slug($post->ID),
+					'yoast_head_json' => $meta->get_head()->json,
 				);
 			}
 
