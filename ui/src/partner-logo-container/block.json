@@ -1,0 +1,13 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/partner-logo-container",
+  "version": "0.1.0",
+  "title": "Partner Logo Container",
+  "category": "botspot",
+  "icon": "excerpt-view",
+  "description": "Only to be used to wrap partner logos.",
+  "textdomain": "botspot-partner-logo-container",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css"
+}

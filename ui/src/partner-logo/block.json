@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ui/partner-logo",
+  "version": "0.1.0",
+  "title": "Partner Logo",
+  "category": "botspot",
+  "icon": "businessman",
+  "description": "Higly specific component. Not recommended to use it outside of the main page.",
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": "partner-logo",
+      "name": "Name",
+      "description": "The name of the partner. It's reccomended to specify it as it's used in the alt attribute of the image."
+    },
+    "src": {
+      "type": "string",
+      "default": "https://picsum.photos/id/237/400/200",
+      "name": "Source URL",
+      "description": "The source of the image."
+    }
+  },
+  "textdomain": "botspot-partner-logo",
+  "editorScript": "file:./index.js"
+}
